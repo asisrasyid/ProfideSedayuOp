@@ -172,8 +172,6 @@
     <script src="~/Content/assets/js/dashboards-analytics.js"></script>
     <script>
         $(document).ready(function () {
-            // URL endpoint API Anda
-            const apiEndpoint = '';
             const SendToData = {
                 User_Pengaju: '',
                 User_Group: '',
@@ -182,7 +180,6 @@
                 startDate: '',
                 endDate: ''
             };
-            // Ambil data dari server menggunakan AJAX
             $.ajax({
                 url: '/Home/GetDataPengecekan',
                 method: 'POST',
@@ -190,7 +187,7 @@
                 data: JSON.stringify(SendToData),
                 success: function (data) {
                     console.log(data);
-                    renderInvoicesShow(data); // Panggil fungsi untuk render data
+                    renderInvoicesShow(data);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error fetching data:', error);

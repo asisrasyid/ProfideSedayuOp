@@ -30,16 +30,16 @@ namespace ProfideSedayuOp.Controllers
     {
         public ActionResult Index()
         {
-            //var xx = Session["DataLog"];
-            //var log = Session["Name"];
-            //var cap = Session["Caption"];
-            //if (xx == null || xx.ToString() == "")
-            //{
-            //    return RedirectToAction("auth_login_cover", "Auth");
-            //}
-            //ViewBag.User = log;
-            //ViewBag.Data = xx;
-            //ViewBag.Caption = cap;
+            var xx = Session["DataLog"];
+            var log = Session["Name"];
+            var cap = Session["Caption"];
+            if (xx == null || xx.ToString() == "")
+            {
+                return RedirectToAction("auth_login_cover", "Auth");
+            }
+            ViewBag.User = log;
+            ViewBag.Data = xx;
+            ViewBag.Caption = cap;
 
             return View();
         }
@@ -150,14 +150,14 @@ namespace ProfideSedayuOp.Controllers
 
         public ActionResult Result()
         {
-            //var xx = Session["DataLog"];
-            //var log = Session["Name"];
-            //if (xx == null || xx.ToString() == "")
-            //{
-            //    return RedirectToAction("auth_login_cover", "Auth");
-            //}
-            //ViewBag.User = log;
-            //ViewBag.Data = xx;
+            var xx = Session["DataLog"];
+            var log = Session["Name"];
+            if (xx == null || xx.ToString() == "")
+            {
+                return RedirectToAction("auth_login_cover", "Auth");
+            }
+            ViewBag.User = log;
+            ViewBag.Data = xx;
 
             return View();
         }
