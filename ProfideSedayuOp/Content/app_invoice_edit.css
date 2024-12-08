@@ -1,0 +1,84 @@
+﻿
+.fixed-container-test {
+    position: fixed; /* Tetap di posisi yang sama */
+}
+
+
+tableinv {
+    font-size: 16px; /* Set font size */
+    width: 100%; /* Full width */
+    table-layout: auto;
+    text-align: left; /* Align text to the left */
+    border-collapse: collapse; /* Remove extra spacing between borders */
+}
+
+th, td {
+    padding: 5px; /* Add padding to cells */
+    border: 1px solid #ddd; /* Border styling */
+    text-align: left;
+}
+
+th {
+    background-color: #d9e8fc; /* Light blue background for header */
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: white; /* Light gray background for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: white; /* White background for odd rows */
+}
+
+td.border-vertical {
+    border-left: 2px solid #000; /* Menambahkan border kiri pada kolom tertentu */
+}
+
+.tableinv-container {
+    overflow-x: auto; /* Add horizontal scroll for small screens */
+}
+
+
+
+.logost {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.logost-text {
+    font-size: 80px;
+    font-weight: bold;
+    color: #FFD700; /* Gold color */
+}
+
+.sdb {
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow effect */
+}
+
+.subst-text {
+    font-size: 20px;
+    color: #000;
+    font-weight: normal;
+    margin-top: -15px;
+}
+
+
+.image-container-ic {
+    /* Membuat container dengan ukuran yang diinginkan */
+    width: 180px; /* Ukuran lebar container 100% dari parent */
+    height: auto; /* Menyesuaikan tinggi dengan lebar gambar */
+    max-height: 200px; /* Menentukan tinggi maksimal container */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang melebihi ukuran container */
+    position: relative;
+}
+
+.image-container-ic img {
+    /* Mengatur ukuran gambar supaya sesuai dengan container */
+    width: 100%; /* Membuat gambar responsif sesuai lebar container */
+    height: auto; /* Menjaga aspek rasio gambar */
+    max-height: 100%; /* Membatasi tinggi gambar agar tidak lebih dari container */
+    object-fit: contain; /* Memastikan gambar menutupi seluruh container tanpa merusak aspek rasio */
+}
+
+

@@ -1,0 +1,247 @@
+﻿
+@{
+    ViewBag.Title = "Invoice Preview - Menu";
+}
+@section CustomStylesPages {
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/plyr/plyr.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/pages/app-academy-details.css" />
+    <link rel="stylesheet" href="~/Content/app_invoice_edit.css" />
+
+
+}
+<div class="">
+    <div class="g-3">
+        <div class="row g-6">
+            <div class="col-lg-2">
+                <div class="accordion stick-top accordion-custom-button" id="courseContent">
+                    <div class="invoice-actions">
+                        <div class="card mb-6">
+                            <div class="card-body col-xl-12 col-sm-12">
+                                <div class="col-xl-12 col-sm-12">
+                                    <a class="btn btn-warning d-flex align-content-center w-100 mb-2" href="@Url.Action("app_invoice_select", "Home")">
+                                        Back
+                                    </a>
+                                    <button type="button" class="btn btn-primary d-flex align-content-center w-100 mb-2" id="generateWord"> <i class="ri-file-word-2-fill px-3"></i></button>
+                                    <button type="button" class="btn btn-secondary d-flex align-content-center w-100 mb-2" id="generatePDF"><i class="ri-file-pdf-2-fill px-3"></i></button>
+                                    <button type="button" class="btn btn-success d-flex align-content-center w-100 mb-2" id="SaveInvoice">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="">
+                    <div class="" id="datainv">
+                        <div class="row invoice-preview">
+                            <!-- Invoice -->
+                            <div class="col-xl-12 col-md-12 col-12 mb-md-0 mb-6">
+                                <form>
+                                    <div class="card invoice-preview-card p-sm-12 p-6">
+                                        <div class="card-body px-0 m-0">
+                                            <div class="d-flex justify-content-between flex-wrap">
+                                                <div class="image-container-ic">
+                                                    <img src="~/Content/assets/img/favicon/Picture1.jpg" />
+                                                </div>
+                                                <div class="text-heading p-0 m-0">
+                                                    <h5 class="fw-semibold">PT. SEDAYU DANA BANDA</h5>
+                                                    <p class="m-0 p-0">Ruko GreenWood, Jalan Nusantara Raya Blok C1- No.20 Vila Indah Permai</p>
+                                                    <p class="m-0 p-0">Kel. Teluk Pucung ,Kec. Bekasi Utara , Kota Bekasi 17121.</p>
+                                                    <p class="m-0 p-0">T. (+62-21) 38312078 </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body px-0 m-0 border-top">
+                                            <div class="d-flex justify-content-center flex-wrap">
+                                                <h5 class="fw-semibold">INVOICE</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card-body px-0 mt-6">
+                                            <div class="d-flex justify-content-between flex-wrap">
+                                                <div class="my-1">
+                                                    <h6>Kepada :</h6>
+                                                    <p class="mb-1 fw-semibold">PT. Mitsui Leasing Capital Indonesia</p>
+                                                    <p class="mb-1">Gedung Plaza Bank Index Lt. 11 NO. 1106 </p>
+                                                    <p class="mb-1">Jalan M.H. Thamrin Kav.57 Jakarta Pusat, 10350.</p>
+                                                </div>
+                                                <div class="my-1 text-heading">
+                                                    <h6></h6>
+                                                    <div class="my-1 d-flex justify-content-between flex-wrap">
+                                                        <div>
+                                                            <p class="mb-1">No. Invoice</p>
+                                                            <p class="mb-1">Tanggal Invoice</p>
+                                                            <p class="mb-1">Jatuh Tempo</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-1 px-1">:</p>
+                                                            <p class="mb-1 px-1">:</p>
+                                                            <p class="mb-1 px-1">:</p>
+                                                        </div>
+                                                        <div>
+                                                            <p class="mb-1 px-1" id="invociceno">63/INV-PB/SDB/XI/2024</p>
+                                                            <p class="mb-1 px-1" id="tanggalmulai">13 November 2024</p>
+                                                            <p class="mb-1 px-1" id="tanggalbayar">18 November 2024</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tableinv-container border">
+                                            <table id="tablehasiltabel" class="tableinv m-0" style="font-size: 14px;width:100%">
+                                                <thead class="">
+                                                    <tr class="m-0 p-0" style="height:10px">
+                                                        <th>No</th>
+                                                        <th>Keterangan</th>
+                                                        <th>Jumlah</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-group-divider">
+                                                    <tr class="m-0 p-0">
+                                                        <td>1</td>
+                                                        <td id="pnbptext">
+                                                            Biaya Pembayaran PNBP &#64; <span id="jumlahpndb"></span> &#215; Rp. 50.000,-
+                                                        </td>
+                                                        <td id="pnbpnilai"></td>
+                                                    </tr>
+                                                    <tr class="m-0 p-0">
+                                                        <td>2</td>
+                                                        <td>
+                                                            <p class="m-0 p-0" id="jasatext">Biaya Jasa Pengecekan Profil Perusahaan &#64; <span id="jumlahjasa"></span> &#215;Rp. 20.000,- </p>
+                                                            <p class="m-0 p-0" id="periodedata">(Periode Tanggal <span id="periodemulai">04-November-2024</span>  s/d <span id="periodeakhir">08-November-2024</span> )</p>
+                                                        </td>
+                                                        <td id="periodenilai"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="text-end">DPP</td>
+                                                        <td id="dppnilai"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="text-end">PPN(11%)</td>
+                                                        <td id="ppnnilai"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="text-end">PPH(2%)</td>
+                                                        <td id="pphnilai"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="fw-semibold text-center">Total</td>
+                                                        <td id="totalnilai"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="card-body px-0 mb-6">
+                                            <h6 class="px-1">Terbilang : <span class="fw-semibold fst-italic" id="nilaiterbilang"></span></h6>
+                                            <div class="d-flex justify-content-between flex-wrap">
+                                                <div class="my-1 text-heading">
+                                                    <h6 class="m-0 px-1 fw-semibold">Pembayaran Tranfer ke : </h6>
+                                                    <div class="d-flex justify-content-between flex-wrap">
+                                                        <div class="my-1 text-heading">
+                                                            <div class="my-1 d-flex justify-content-between flex-wrap">
+                                                                <div>
+                                                                    <p class="mb-1 px-1">Account No</p>
+                                                                    <p class="mb-1 px-1">a/n</p>
+                                                                    <p class="mb-1 px-1">Bank</p>
+                                                                    <p class="mb-1 px-1">Cabang</p>
+                                                                </div>
+                                                                <div>
+                                                                    <p class="mb-1">:</p>
+                                                                    <p class="mb-1">:</p>
+                                                                    <p class="mb-1">:</p>
+                                                                    <p class="mb-1">:</p>
+                                                                </div>
+                                                                <div>
+                                                                    <p class="mb-1 px-1">1177721558</p>
+                                                                    <p class="mb-1 px-1">PT. SEDAYU DANA BANDA</p>
+                                                                    <p class="mb-1 px-1">Bank Negara Indonesia (BNI)</p>
+                                                                    <p class="mb-1 px-1">0181 - BEKASI</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end flex-wrap">
+                                            <div class="my-1 text-heading">
+                                                <div>
+                                                    <div class="justify-content-center">
+                                                        <p class="mb-1 px-1">Bekasi, <span id="tanggalinvoicettd">13 november 2024</span></p>
+                                                        <p class="mb-1 px-1 fw-semibold">PT. SEDAYU DANA BANDA</p>
+
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <p class="mb-1 px-1 fw-semibold text-decoration-underline">Muhammad Agil Almunawwar</p>
+                                                        <p class="mb-1 px-1 fw-semibold text-decoration-underline">Head of Finance Accounting and Tax</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-xl-5">
+                                            <div class="invoice-preview-card mt-5">
+                                                <div class=" invoice-preview-header rounded text-heading text-center justify-content-center ">
+                                                    <p class="mb-0 text text-primary fw-semibold">PT. Sedayu Dana Banda</p>
+                                                    <p class="mb-0">ptsedayudanbanda@gmail.com</p>
+                                                    <p class="mb-0" id="BulanTerbit"></p>
+                                                    <p class="mb-0" id="NoFaktur"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-10">
+                            <div class="card invoice-preview-card p-xl-12 p-12">
+                                <div class="card-body invoice-preview-header rounded text-heading">
+                                    <p class="mb-0">Lampiran Pencarian Data Profil Perusahaan PT. MISTUI LEASING CAPITAL INDONESIA</p>
+                                    <p class="mb-0">Cabang : <span id="NamaCabang"></span></p>
+                                </div>
+                                <div class="tableinv-container border rounded m-6">
+                                    <table id="data-invoice" class="tableinv table-bordered m-0" style="font-size: 10px;width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10px;">No</th>
+                                                <th class="col-2">Tanggal Invoice</th>
+                                                <th class="col-3">Nama Perusahaan</th>
+                                                <th class="col-3">Cabang</th>
+                                                <th class="col-2">PNBP</th>
+                                                <th class="col-2">Jasa Pengecekan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hasil-table" class="mt-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/Content/assets/vendor/js/jspdf.plugin.autotable.min.js"></script>
+    <script src="~/Content/assets/vendor/libs/moment/moment.js"></script>
+    <script src="~/Content/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <script src="~/Content/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="~/Content/assets/vendor/libs/plyr/plyr.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="~/Content/assets/js/app-invoice-select.js"></script>
+    <script src="~/Content/assets/js/app-invoice-vmedit.js"></script>
+}
+

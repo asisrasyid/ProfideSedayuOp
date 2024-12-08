@@ -1,0 +1,139 @@
+@{ 
+    Layout = null;
+}
+
+<!doctype html>
+
+<html lang="en"
+      class="light-style layout-wide"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="/Content/assets/"
+      data-template="vertical-menu-template"
+      data-style="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Invoice (Print) - Menu </title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+          rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/Content/assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/pages/app-invoice-print.css" />
+
+    <script src="~/Content/assets/vendor/js/helpers.js"></script>
+    <script src="~/Content/assets/js/config.js"></script>
+    <style>
+        tableinv {
+            font-size: 16px; /* Set font size */
+            width: 100%; /* Full width */
+            table-layout: auto;
+            text-align: left; /* Align text to the left */
+            border-collapse: collapse; /* Remove extra spacing between borders */
+        }
+
+        th, td {
+            padding: 5px; /* Add padding to cells */
+            border: 1px solid #ddd; /* Border styling */
+        }
+
+        th {
+            background-color: #d9e8fc; /* Light blue background for header */
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: white; /* Light gray background for even rows */
+        }
+
+        tr:nth-child(odd) {
+            background-color: white; /* White background for odd rows */
+        }
+
+        .tableinv-container {
+            overflow-x: auto; /* Add horizontal scroll for small screens */
+        }
+    </style>
+    <style>
+        .image-container-ic {
+            /* Membuat container dengan ukuran yang diinginkan */
+            width: 180px; /* Ukuran lebar container 100% dari parent */
+            height: auto; /* Menyesuaikan tinggi dengan lebar gambar */
+            max-height: 200px; /* Menentukan tinggi maksimal container */
+            overflow: hidden; /* Menyembunyikan bagian gambar yang melebihi ukuran container */
+            position: relative;
+        }
+
+            .image-container-ic img {
+                /* Mengatur ukuran gambar supaya sesuai dengan container */
+                width: 100%; /* Membuat gambar responsif sesuai lebar container */
+                height: auto; /* Menjaga aspek rasio gambar */
+                max-height: 100%; /* Membatasi tinggi gambar agar tidak lebih dari container */
+                object-fit: contain; /* Memastikan gambar menutupi seluruh container tanpa merusak aspek rasio */
+            }
+    </style>
+</head>
+
+<body>
+    <!-- Content -->
+    <div class="invoice-print" id="tampil">
+    </div>
+
+    <!-- / Content -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="~/Content/assets/vendor/js/menu.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ambil data dari localStorage
+            var savedHtml = localStorage.getItem('savedHtml');
+
+            // Tampilkan data di elemen dengan ID 'tampil'
+            if (savedHtml) {
+                $('#tampil').html(savedHtml);
+            } else {
+                $('#tampil').text("Tidak ada data untuk ditampilkan.");
+            }
+        });
+    </script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <!-- Main JS -->
+    <script src="~/Content/assets/js/main.js"></script>
+    <!-- Page JS -->
+    <script src="~/Content/assets/js/app-invoice-print.js"></script>
+
+</body>
+</html>

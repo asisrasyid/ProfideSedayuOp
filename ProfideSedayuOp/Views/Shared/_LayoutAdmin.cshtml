@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+      class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="/Content/assets/"
+      data-template="vertical-menu-template"
+      data-style="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/icons/S-removebg-preview.png" />
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+          rel="stylesheet" />-->
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/theme-semi-dark.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/Content/assets/css/demo.css" />
+
+    <!-- Vendor -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/spinkit/spinkit.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/plyr/plyr.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/animate-css/animate.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/pages/app-academy-details.css" />
+    <link href="~/Content/backgroudauth.css" rel="stylesheet" />
+    @RenderSection("CustomStylesVendor", required: false)
+
+    <!-- Page -->
+    @RenderSection("CustomStylesPages", required: false)
+
+    <script src="~/Content/assets/vendor/js/helpers.js"></script>
+    <!--
+    <script src="~/Content/assets/vendor/js/template-customizer.js"></script>
+    -->
+    <script src="~/Content/assets/js/config.js"></script>
+
+
+</head>
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" >
+                <div class="app-brand demo">
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+                        <i class="menu-toggle-icon d-xl-block align-middle"></i>
+                    </a>
+                </div>
+
+                <div class="menu-inner-shadow"></div>
+
+                <ul class="menu-inner py-1">
+                    <!-- Dashboards -->
+                    <li class="menu-item">
+                        <a href="@Url.Action("Index", "Admin")" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons ri-home-smile-line"></i>
+                            <div data-i18n="Dashboards">Dashboards</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="@Url.Action("Index", "Admin")" class="menu-link">
+                                    <div data-i18n="Profile Check">Profile Check</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Layouts -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons ri-layout-2-line"></i>
+                            <div data-i18n="Apps & Fiture">Apps &Aacute; Fiture</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="@Url.Action("Laporan", "Admin")" class="menu-link">
+                                    <div data-i18n="Laporan">Laporan</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="@Url.Action("Result", "Admin")" class="menu-link">
+                                    <div data-i18n="Hasil Cek">Hasil Cek</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                    <div data-i18n="Invoice">Invoice</div>
+                                </a>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("app_invoice_list", "Admin")" class="menu-link">
+                                            <div data-i18n="Invoice List">Invoice List</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                    <div data-i18n="Akses & User">Akses &Aacute; User </div>
+                                </a>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("Index", "Admin")" class="menu-link">
+                                            <div data-i18n="User List">User List</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="@Url.Action("Index", "Admin")" class="menu-link">
+                                            <div data-i18n="Akses">Akses</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page stripe-2new">
+                <!-- Navbar -->
+
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                     id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                            <i class="ri-menu-fill ri-24px"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <h4 class="px-5 fw-semibold text-secondary text-center">@Session["Caption"]</h4>
+                        <div class="navbar-nav align-items-center">
+
+                            <div class="nav-item navbar-search-wrapper mb-0">
+                                <a class="nav-item nav-link search-toggler fw-normal px-0" href="javascript:void(0);">
+
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!-- User -->
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow p-0 px-5"
+                                   href="javascript:void(0);"
+                                   data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img src="~/Content/assets/img/avatars/1.png" class="h-auto rounded-circle" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
+                                    <li>
+                                        <a class="dropdown-item pb-3" href="pages-account-settings-account.html">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <div class="avatar avatar-online">
+                                                        <img src="~/Content/assets/img/avatars/1.png" class="w-px-40 h-auto rounded-circle" />
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-0 small">@Session["Name"]</h6>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider my-0"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="ri-user-3-line ri-22px me-2"></i>
+                                            <span class="align-middle">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                    </li>
+                                    <li>
+                                        <div class="d-grid px-4 pt-2 pb-1">
+                                            <a class="btn btn-danger d-flex" href="@Url.Action("Auth_login_cover", "Auth")">
+                                                <small class="align-middle">Logout</small>
+                                                <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--/ User -->
+                        </ul>
+                    </div>
+
+                    <!-- Search Small Screens -->
+                    <div class="navbar-search-wrapper search-input-wrapper d-none">
+                        <input type="text"
+                               class="form-control search-input container-xxl border-0"
+                               placeholder="Search..."
+                               aria-label="Search..." />
+                        <i class="ri-close-fill search-toggler cursor-pointer"></i>
+                    </div>
+                </nav>
+
+                <!-- / Navbar -->
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
+                    <div class="container-fluid flex-grow-1 container-p-y">
+                        @RenderBody()
+                    </div>
+                    <!-- Content -->
+                    <!-- / Content -->
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div class="container-xxl">
+                            <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                                <div class="text-body mb-2 mb-md-0">
+                                    ©
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script>, made by
+                                    <a href="https://sedayudanabanda.com" target="_blank" class="footer-link">SDB Corp</a>
+                                </div>
+                                <div class="d-none d-lg-inline-block">
+
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+        <div class="drag-target"></div>
+    </div>
+    <script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="~/Content/assets/vendor/libs/block-ui/block-ui.js"></script>
+   
+    <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="~/Content/assets/vendor/js/menu.js"></script>
+    <script src="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!doctype html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="~/Content/assets/"
+  data-template="vertical-menu-template"
+  data-style="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Settings Store Payments - eCommerce | Materio - Bootstrap Material Design Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+      rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/core.css"  />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/theme-default.css"  />
+    <link rel="stylesheet" href="~/Content/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="~/Content/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script ></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/Content/assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="">
+<div class="">
+            <!-- Content -->
+
+            <div class="">
+              <div class="row g-6">
+                <!-- Navigation -->
+                <div class="col-12 col-lg-4">
+                  <div class="d-flex justify-content-between flex-column mb-4 mb-md-0">
+                    <h5 class="mb-4">Getting Started</h5>
+                    <ul class="nav nav-align-left nav-pills flex-column">
+                      <li class="nav-item mb-1">
+                        <a class="nav-link" href="app-ecommerce-settings-detail.html">
+                          <i class="ri-store-line me-1_5"></i>
+                          <span class="align-middle">Store details</span>
+                        </a>
+                      </li>
+                      <li class="nav-item mb-1">
+                        <a class="nav-link active" href="javascript:void(0);">
+                          <i class="ri-bank-card-line me-1_5"></i>
+                          <span class="align-middle">Payments</span>
+                        </a>
+                      </li>
+                      <li class="nav-item mb-1">
+                        <a class="nav-link" href="app-ecommerce-settings-checkout.html">
+                          <i class="ri-shopping-cart-line me-1_5"></i>
+                          <span class="align-middle">Checkout</span>
+                        </a>
+                      </li>
+                      <li class="nav-item mb-1">
+                        <a class="nav-link" href="app-ecommerce-settings-shipping.html">
+                          <i class="ri-car-line me-1_5"></i>
+                          <span class="align-middle">Shipping & delivery</span>
+                        </a>
+                      </li>
+                      <li class="nav-item mb-1">
+                        <a class="nav-link" href="app-ecommerce-settings-locations.html">
+                          <i class="ri-map-pin-line me-1_5"></i>
+                          <span class="align-middle">Locations</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="app-ecommerce-settings-notifications.html">
+                          <i class="ri-notification-3-line me-1_5"></i>
+                          <span class="align-middle">Notifications</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- /Navigation -->
+                <!-- Options -->
+                <div class="col-12 col-lg-8 pt-lg-0">
+                  <div class="tab-content p-0">
+                    <!-- Payments Tab -->
+                    <div class="tab-pane fade show active" id="payments" role="tabpanel">
+                      <div class="card mb-6">
+                        <div class="card-header">
+                          <h5 class="card-title m-0">Payment providers</h5>
+                        </div>
+                        <div class="card-body">
+                          <p class="mb-5">
+                            Providers that enable you to accept payment methods at a rate set by the third-party.<br />
+                            An additional fee will apply to new orders once you select a plan
+                          </p>
+                          <button
+                            class="btn btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#paymentProvider">
+                            Choose a provider
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card mb-6">
+                        <div class="card-header">
+                          <div class="card-title m-0">
+                            <h5 class="m-0">Supported payment methods</h5>
+                            <p class="card-subtitle mt-0 mb-0">
+                              Payment methods that are available with one of Vuexy's approved payment providers.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <h6 class="mb-5">Default</h6>
+                          <div class="bg-lightest p-3 rounded-3 mb-5">
+                            <div class="d-flex justify-content-between align-items-center p-1">
+                              <img
+                                src="~/Content/assets/img/icons/payments/paypal.png"
+                                alt="Paypal"
+                                width="57"
+                                height="37" />
+                              <span class="fw-medium"><a href="javascript:void(0);">Activate Paypal</a></span>
+                            </div>
+                            <hr class="my-6 px-1" />
+                            <div class="d-flex justify-content-between align-items-center p-1">
+                              <div class="text-left w-25">
+                                <p class="mb-2 small">Provider</p>
+                                <h6 class="mb-0">Paypal</h6>
+                              </div>
+                              <div class="text-left w-25">
+                                <p class="mb-2 small">Status</p>
+                                <small class="badge bg-label-warning rounded-pill fw-normal">Inactive</small>
+                              </div>
+                              <div class="text-left w-25">
+                                <p class="mb-2 small">Transaction Fee</p>
+                                <h6 class="mb-0">2.99%</h6>
+                              </div>
+                            </div>
+                          </div>
+                          <button
+                            class="btn btn-outline-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#paymentMethods">
+                            Add payment methods
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card mb-6">
+                        <div class="card-header">
+                          <h5 class="card-title m-0">Manual payment methods</h5>
+                        </div>
+                        <div class="card-body">
+                          <p class="mb-5">
+                            Payments that are made outside your online store. When a customer selects a manual payment
+                            method such as cash on delivery. You'll need to approve their order before it can be
+                            fulfilled.
+                          </p>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-outline-primary">Add manual payment method</button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item" href="javascript:void(0);">Create custom payment method</a>
+                              </li>
+                              <li><a class="dropdown-item" href="javascript:void(0);">Bank deposit</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0);">Money order</a></li>
+                              <li><a class="dropdown-item" href="javascript:void(0);">Cash on delivery (COD)</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-end gap-4">
+                        <button type="reset" class="btn btn-outline-secondary">Discard</button>
+                        <a class="btn btn-primary" href="app-ecommerce-settings-checkout.html">Save Changes</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Options-->
+              </div>
+
+              <!-- Payment provider modal -->
+              <div class="modal fade" id="paymentProvider" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-simple modal-enable-otp modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body p-0">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="text-center mb-6">
+                        <h4 class="mb-2">Select payment providers</h4>
+                        <p>Third-party payment providers</p>
+                      </div>
+
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom py-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0 me-12">Adyen</h6>
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">2Checkout</h6>
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">Airpay</h6>
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">Authorize.net</h6>
+
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">Bambora</h6>
+
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">Cayan</h6>
+
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-4 mb-4">
+                        <h6 class="m-0 mb-2 mb-sm-0">Chase Paymentech (Orbital)</h6>
+
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                        </div>
+                      </div>
+                      <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                        <h6 class="m-0 mb-2 mb-sm-0">Checkout.com</h6>
+                        <div class="d-flex flex-wrap gap-4">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- / Payment provider modal -->
+
+              <!-- Payment Methods modal -->
+              <div class="modal fade" id="paymentMethods" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-simple modal-enable-otp modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-body p-0">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="text-center mb-6">
+                        <h4 class="mb-2">Select payment methods</h4>
+                        <p>Supported payment methods</p>
+                      </div>
+
+                      <div class="d-flex justify-content-between align-items-center border-bottom py-4 mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                          <img
+                            src="~/Content/assets/img/icons/payments/visa-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="visa-card"
+                            data-app-light-img="icons/payments/visa-light.png"
+                            data-app-dark-img="icons/payments/visa-dark.png" />
+
+                          <h6 class="m-0">Visa</h6>
+                        </div>
+                        <p class="m-0 d-none d-sm-block">Credit Card</p>
+                      </div>
+                      <div class="d-flex justify-content-sm-between align-items-center border-bottom pb-4 mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                          <img
+                            src="~/Content/assets/img/icons/payments/ae-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="american-express-card"
+                            data-app-light-img="icons/payments/ae-light.png"
+                            data-app-dark-img="icons/payments/ae-dark.png" />
+
+                          <h6 class="m-0">American Express</h6>
+                        </div>
+                        <p class="m-0 d-none d-sm-block">Credit Card</p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center border-bottom pb-4 mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                          <img
+                            src="~/Content/assets/img/icons/payments/master-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="master-card"
+                            data-app-light-img="icons/payments/master-light.png"
+                            data-app-dark-img="icons/payments/master-dark.png" />
+
+                          <h6 class="m-0">Mastercard</h6>
+                        </div>
+                        <p class="m-0 d-none d-sm-block">Credit Card</p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center border-bottom pb-4 mb-4">
+                        <div class="d-flex gap-4 align-items-center">
+                          <img
+                            src="~/Content/assets/img/icons/payments/jcb-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="jcb-card"
+                            data-app-light-img="icons/payments/jcb-light.png"
+                            data-app-dark-img="icons/payments/jcb-dark.png" />
+                          <h6 class="m-0">JCB</h6>
+                        </div>
+                        <p class="m-0 d-none d-sm-block">Credit Card</p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex gap-4 align-items-center">
+                          <img
+                            src="~/Content/assets/img/icons/payments/dc-light.png"
+                            class="img-fluid w-px-50 h-px-30"
+                            alt="diners-club-card"
+                            data-app-light-img="icons/payments/dc-light.png"
+                            data-app-dark-img="icons/payments/dc-dark.png" />
+                          <h6 class="m-0">Diners Club</h6>
+                        </div>
+                        <p class="m-0 d-none d-sm-block">Credit Card</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- / Payment Methods modal -->
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="~/Content/assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/Content/assets/js/app-ecommerce-settings.js"></script>
+  </body>
+</html>

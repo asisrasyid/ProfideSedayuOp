@@ -1,0 +1,276 @@
+﻿
+@{
+    ViewBag.Title = "Hasil Cek  - Apps & Fitur";
+}
+@section  CustomStylesPages{
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+
+    @*<link rel="stylesheet" href="~/Content/assets/vendor/css/pages/app-invoice.css" />*@
+}
+<!-- Layout wrapper -->
+<div class="">
+    <div class="">
+        <!-- Content -->
+
+        <div class="">
+            <!-- Invoice List Widget -->
+
+            <div class="card mb-6">
+                <div class="card-widget-separator-wrapper">
+                    <div class="card-body card-widget-separator">
+                        <div class="row gy-4 gy-sm-1">
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-4 pb-sm-0">
+                                    <div>
+                                        <h4 class="mb-0" id="TotalSelesai"></h4>
+                                        <p class="mb-0">Total Data Cek</p>
+                                    </div>
+                                    <div class="avatar me-sm-6">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-folder-open-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr class="d-none d-sm-block d-lg-none me-6" />
+                            </div>
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-4 pb-sm-0">
+                                    <div>
+                                        <h4 class="mb-0" id="totalpendapatan"></h4>
+                                        <p class="mb-0">Berhasil Cek</p>
+                                    </div>
+                                    <div class="avatar me-lg-6">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-file-check-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr class="d-none d-sm-block d-lg-none" />
+                            </div>
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start border-end pb-4 pb-sm-0 card-widget-3">
+                                    <div>
+                                        <h4 class="mb-0" id="GagalCek">    </h4>
+                                        <p class="mb-0">Gagal Cek</p>
+                                    </div>
+                                    <div class="avatar me-sm-6">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-error-warning-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr class="d-none d-sm-block d-lg-none" />
+                            </div>
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start card-widget-2 border-end pb-4 pb-sm-0">
+                                    <div>
+                                        <h4 class="mb-0" id="TotalPTShow"></h4>
+                                        <p class="mb-0">Total PT</p>
+                                    </div>
+                                    <div class="avatar me-lg-6">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-file-check-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr class="d-none d-sm-block d-lg-none" />
+                            </div>
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start border-end pb-4 pb-sm-0 card-widget-3">
+                                    <div>
+                                        <h4 class="mb-0" id="TotalCvShow">    </h4>
+                                        <p class="mb-0">Total CV</p>
+                                    </div>
+                                    <div class="avatar me-sm-6">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-file-check-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h4 class="mb-0" id="TotalSelShow"></h4>
+                                        <p class="mb-0">Selain</p>
+                                    </div>
+                                    <div class="avatar">
+                                        <span class="avatar-initial rounded bg-label-secondary">
+                                            <i class="ri-file-check-line text-heading ri-26px"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice List Table -->
+            <div class="card">
+                <div class="card-datatable table-responsive">
+                    <table class="invoice-list-table table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>ID Transaksi</th>
+                                <th>Jenis Cek</th>
+                                <th>Data Cek</th>
+                                <th>Pengaju</th>
+                                <th>Tanggal Cek</th>
+                                <th>Cabang Pengaju</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <input type="text" value="@ViewBag.Data" id="ViewMaster" hidden />
+        <!-- / Content -->
+        <!-- Footer -->
+        <!-- / Footer -->
+
+        <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+
+<!-- Drag Target Area To SlideIn Menu On Small Screens -->
+<div class="drag-target"></div>
+
+<!-- endbuild -->
+<!-- Vendors JS -->
+@section Scripts {
+    <script>
+        $(document).ajaxStart(function () {
+            $.blockUI({
+                message: '<div class="spinner-border text-primary" role="status"></div>',
+                css: {
+                    backgroundColor: 'transparent',
+                    border: '0'
+                },
+                overlayCSS: {
+                    backgroundColor: '#fff',
+                    opacity: 0.8
+                }
+            });
+        });
+
+        // Nonaktifkan BlockUI saat semua request selesai
+        $(document).ajaxStop(function () {
+            $.unblockUI();
+        });
+
+    </script>
+    <script src="~/Content/assets/vendor/libs/moment/moment.js"></script>
+    <script src="~/Content/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/Content/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/Content/assets/js/app_result_list.js"></script>
+    <script>
+        function formatNumber(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        function formatRupiah(angka) {
+            // Membuat format angka menggunakan Intl.NumberFormat untuk format Indonesia
+            var formattedNumber = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(angka);
+
+            // Menghapus simbol "Rp" yang otomatis ditambahkan oleh Intl.NumberFormat
+            formattedNumber = formattedNumber.replace('Rp', '').trim();
+
+            // Menambahkan "Rp." di depan dan mengubah format untuk ribuan dan desimal
+            formattedNumber = "Rp. " + formattedNumber.replace(',', '.') + ",-";
+
+            return formattedNumber;
+        }
+        $.ajax({
+            url: assetsPath + 'json/BackData.json',   //'/Home/GetDataPengecekan', // Ganti dengan endpoint server Anda
+            method: "GET",  //'POST',
+            dataType: 'json',
+            //data: {
+            //    User_Pengaju: '',
+            //    User_Group: '',
+            //    tipw: '',
+            //    status: '',
+            //    startDate: '',
+            //    endDate: ''
+            //},
+            success: function (response) {
+                if (response && Array.isArray(response)) {
+                    let countstts16 = 0;
+                    let countstts40 = 0;
+                    let countstts10 = 0;
+                    let totaldata = 0;
+                    let totalPendapatan = 0;
+                    let totalpt = 0;
+                    let totalcv = 0;
+                    let totalselain = 0;
+                    response.forEach(item => {
+                        if (item.TipeTransaksi_CekingDesc === "Data Terakhir" && item.Status_Pengajuan === 40) {
+                            totalPendapatan++
+                        }
+                        if (item.Status_Pengajuan > 0) {
+                            totaldata++
+                        }
+                        if (item.Status_Pengajuan === 16) {
+                            countstts16++;
+                        } else if (item.Status_Pengajuan === 40) {
+                            countstts40++
+                        } else if (item.Status_Pengajuan === 10) {
+                            countstts10++
+                        }
+                        if ((item.Jenis_Badan === "pt" || item.Nama_PT.trim().slice(0, 2).toLowerCase() === "pt") && item.Status_Pengajuan === 40) {
+                            totalpt++
+                        } else if ((item.Jenis_Badan === "cv" || item.Nama_PT.trim().slice(0, 2).toLowerCase() === "cv") && item.Status_Pengajuan === 40) {
+                            totalcv++
+                        } else if (((item.Jenis_Badan != "pt" || item.Nama_PT.trim().slice(0, 2).toLowerCase() != "pt") || (item.Jenis_Badan != "cv" || item.Nama_PT.trim().slice(0, 2).toLowerCase() != "cv")) && item.Status_Pengajuan === 40) {
+                            totalselain++
+                        }
+                    });
+                    let total = totalPendapatan * 20000
+                    let forTotal = formatRupiah(total)
+                    let totaldatasel = formatNumber(totaldata)
+                    $("#TotalSelesai").text(totaldatasel);
+                    $("#totalpendapatan").text(formatNumber(countstts40));
+                    $("#GagalCek").text(formatNumber(countstts16));
+                    $("#TotalCvShow").text(formatNumber(totalcv));
+                    $("#TotalPTShow").text(formatNumber(totalpt));
+                    $("#TotalSelShow").text(formatNumber(totalselain));
+
+
+                    console.log('Data total ' + formatNumber(totaldata));
+                    console.log('Data 16 ' + formatNumber(countstts16));
+                    console.log('Data 40 ' + formatNumber(countstts40));
+                    console.log('Data 10 ' + formatNumber(countstts10));
+                    console.log('Data Total Pendapatan ' + forTotal);
+                    console.log('Data PT ' + formatNumber(totalpt));
+                    console.log('Data CV ' + formatNumber(totalcv));
+                    console.log('Data Selain PT dan CV ' + formatNumber(totalselain));
+
+
+                } else {
+                    console.error('Response tidak sesuai format.');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Gagal mengambil data:', error);
+            }
+        });
+
+    </script>
+}
+

@@ -1,0 +1,72 @@
+// Imports
+// *******************************************************************************
+
+@import '~/Content/libs/nouislider/mixins';
+@import '~/Content/libs/select2/mixins';
+
+@import '~/Content/libs/tagify/mixins';
+@import '~/Content/libs/datatables-responsive-bs5/mixins';
+@import '~/Content/libs/bootstrap-select/mixins';
+@import '~/Content/libs/bootstrap-datepicker/mixins';
+@import '~/Content/libs/flatpickr/mixins';
+@import '~/Content/libs/bootstrap-daterangepicker/mixins';
+@import '~/Content/libs/jquery-timepicker/mixins';
+@import '~/Content/libs/quill/mixins';
+@import '~/Content/libs/typeahead-js/mixins';
+@import '~/Content/libs/dropzone/mixins';
+@import '~/Content/libs/swiper/mixins';
+@import '~/Content/libs/spinkit/mixins';
+@import '~/Content/libs/plyr/mixins';
+@import '~/Content/libs/fullcalendar/mixins';
+@import '~/Content/libs/sweetalert2/mixins';
+@import '~/Content/libs/pickr/mixins';
+@import '~/Content/libs/bs-stepper/mixins';
+
+// Theme mixin
+// *******************************************************************************
+
+@mixin template-libs-theme($background, $color: null) {
+  @include nouislider-theme($background);
+  @include select2-theme($background, $color);
+  @include tagify-theme($background);
+  @include bs-datatables-theme($background);
+  @include bs-select-theme($background, $color);
+  @include bs-datepicker-theme($background, $color);
+  @include flatpickr-theme($background, $color);
+  @include bs-daterangepicker-theme($background, $color);
+  @include timepicker-theme($background, $color);
+  @include quill-theme($background);
+  @include typeahead-theme($background, $color);
+  @include dropzone-theme($background);
+  @include swiper-theme($background);
+  @include spinkit-theme($background);
+  @include plyr-theme($background, $color);
+  @include fullcalendar-theme($background, $color);
+  @include sweetalert2-theme($background, $color);
+  @include colorPicker-theme($background);
+  @include icon-theme($background);
+  @include bs-stepper-theme($background);
+}
+
+@mixin template-libs-dark-theme($background, $color: null) {
+  @include nouislider-theme($background);
+  @include select2-theme($background, $color);
+  @include tagify-theme($background);
+  @include bs-datatables-theme($background);
+  @include bs-select-theme($background, $color);
+  @include bs-datepicker-dark-theme($background, $color);
+  @include flatpickr-dark-theme($background, $color);
+  @include bs-daterangepicker-dark-theme($background, $color);
+  @include timepicker-theme($background, $color);
+  @include quill-theme($background);
+  @include typeahead-theme($background, $color);
+  @include dropzone-theme($background);
+  @include swiper-theme($background);
+  @include spinkit-theme($background);
+  @include plyr-theme($background, $color);
+  @include fullcalendar-theme($background, $color);
+  @include sweetalert2-dark-theme($background, $color);
+  @include colorPicker-theme($background);
+  @include icon-theme($background); // ToDo: placement of mixin
+  @include bs-stepper-theme($background);
+}

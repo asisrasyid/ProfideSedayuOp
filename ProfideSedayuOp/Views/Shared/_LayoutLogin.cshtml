@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en"
+      class="light-style layout-wide customizer-hide"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="~/Content/assets/"
+      data-template="vertical-menu-template"
+      data-style="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+          rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/demo.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <!-- Vendor -->
+    @RenderSection("CustomStylesVendor", required: false)
+
+    <!-- Page -->
+    @RenderSection("CustomStylesPages", required: false)
+
+    <script src="~/Content/assets/vendor/js/helpers.js"></script>
+    <script src="~/Content/assets/js/config.js"></script>
+
+
+</head>
+<body>
+<!--Conten-->
+    @RenderBody()
+<!--Akhir Konten-->
+    <script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
+    <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="~/Content/assets/vendor/js/menu.js"></script>
+    @RenderSection("CustomScriptsVendor", required: false)
+    <script src="~/Content/assets/js/main.js"></script>
+    @RenderSection("CustomScriptsPage", required: false)
+</body>
+</html>

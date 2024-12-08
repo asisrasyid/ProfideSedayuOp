@@ -1,0 +1,36 @@
+﻿.module2 {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 3%;
+    /*animation: widen 10s linear alternate infinite;*/
+}
+
+.module2 > h2 {
+    padding: 10rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.module > p {
+    padding: 0 1rem;
+}
+
+.stripe-1new {
+    color: white;
+    background: repeating-linear-gradient(
+    45deg,
+    #9694FF ,
+    #9694FF 150px, 
+    #6c48c5 15px, 
+    #6c48c5 600px
+    );
+}
+.stripe-2new {
+    color: white;
+    background: repeating-linear-gradient( 45deg, #9694FF 20px, #9694FF 350px, #6c48c5 35px, #6c48c5 900px );
+}
+
+/*@keyframes widen {
+  100% {
+    width: 100%;
+  }
+}*/

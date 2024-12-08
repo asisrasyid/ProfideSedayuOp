@@ -1,0 +1,28 @@
+﻿
+@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+
+    if (controller == "Home")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (controller == "HRD")
+    {
+        Layout = "~/Views/Shared/_LayoutHRD.cshtml";
+    }
+    else if (controller == "Error")
+    {
+        Layout = "~/Views/Shared/_LayoutError.cshtml";
+    }
+    else if (controller == "Auth")
+    {
+        Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    }else if (controller == "Admin")
+    {
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

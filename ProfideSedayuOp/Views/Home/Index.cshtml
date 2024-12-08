@@ -1,0 +1,433 @@
+﻿@{
+    ViewBag.Title = "Home - Dashboard";
+}
+@section CustomStylesVendor {
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/apex-charts/apex-charts.css" />
+}
+
+<div class="">
+    <div class="">
+        <!-- Content -->
+
+        <div class="">
+            <div class="row gy-6">
+                <!-- Congratulations card -->
+                <div class="col-md-12 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-nowrap">
+                            <h5 class="card-title mb-0 flex-wrap text-nowrap">Selamat Datang! 🎉</h5>
+                            <p class="mb-2">Pendapatan Bulan Ini</p>
+                            <h4 class="text-primary mb-0" id="NilaiBulanini"></h4>
+                            <p class="mb-2">Estimasi Pendapatan Total <span class="fw-semibold" id="totalpendapatan"></span></p>
+                        </div>
+                        <img src="~/Content/assets/img/illustrations/trophy.png"
+                             class="position-absolute bottom-0 end-0 me-5 mb-5"
+                             width="83"
+                             alt="view sales" />
+                    </div>
+                </div>
+                <!--/ Congratulations card -->
+                <!-- Transactions -->
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5 class="card-title m-0 me-2">Resume Data Cek</h5>
+                            </div>
+                            <p><span id="TotalSelesai" class="fw-semibold"></span> data Berhasil dilakukan Pengecekan 🚀</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-6">
+                                <div class="col-md-3 col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar">
+                                            <div class="avatar-initial bg-danger rounded shadow-xs">
+                                                <i class="ri-error-warning-line ri-24px"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0">Gagal Cek</p>
+                                            <h5 class="mb-0" id="GagalCek"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar">
+                                            <div class="avatar-initial bg-success rounded shadow-xs">
+                                                <i class="ri-group-line ri-24px"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0">Total CV</p>
+                                            <h5 class="mb-0" id="TotalCvShow"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar">
+                                            <div class="avatar-initial bg-warning rounded shadow-xs">
+                                                <i class="ri-macbook-line ri-24px"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0">Total PT</p>
+                                            <h5 class="mb-0" id="TotalPTShow"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar">
+                                            <div class="avatar-initial bg-info rounded shadow-xs">
+                                                <i class="ri-file-search-line ri-24px"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0">Selain</p>
+                                            <h5 class="mb-0" id="TotalSelShow"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Transactions -->
+                <!-- Weekly Overview Chart -->
+                <div class="col-xl-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-1">Weekly Overview</h5>
+                            </div>
+                        </div>
+                        <div class="card-body pt-lg-2">
+                            <div id="weeklyOverviewChart"></div>
+                            <div class="mt-1 mt-md-3">
+                                <div class=" gap-3">
+                                    <h4 class="mb-0 w-auto" id="persenprogres"></h4>
+                                    <p class="mb-0" id="persenprogrestext"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Weekly Overview Chart -->
+                <!-- Total Earnings -->
+                <div class="col-xl-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-1">Monthly Overview</h5>
+                            </div>
+                        </div>
+                        <div class="card-body pt-lg-2">
+                            <div id="monthlyOverviewChart"></div>
+                            <div class="mt-1 mt-md-3">
+                                <div class=" gap-3">
+                                    <h4 class="mb-0 w-auto" id="Monthpersenprogres"></h4>
+                                    <p class="mb-0" id="Monthpersenprogrestext"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-md-12">
+                    <div class="card" style="height:550px">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-0">Jenis Cek Perbulan</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="performanceChart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-12">
+                    <div class="card overflow-hidden mb-6" style="height:550px">
+                        <h5 class="card-header">List Invoice</h5>
+                        <div class="card-body" id="vertical-example">
+                            <div>
+                                <ul id="invoice-list" class="p-0 m-0">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+</div>
+@section Scripts{
+
+    <script src="~/Content/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="~/Content/assets/js/dashboards-analytics.js"></script>
+    <script>
+        $(document).ready(function () {
+            // URL endpoint API Anda
+            const apiEndpoint = '';
+            const SendToData = {
+                User_Pengaju: '',
+                User_Group: '',
+                tipe: '002',
+                status: '',
+                startDate: '',
+                endDate: ''
+            };
+            // Ambil data dari server menggunakan AJAX
+            $.ajax({
+                url: '/Home/GetDataPengecekan',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(SendToData),
+                success: function (data) {
+                    console.log(data);
+                    renderInvoicesShow(data); // Panggil fungsi untuk render data
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+
+            // Fungsi untuk render data ke HTML
+            function renderInvoicesShow(invoices) {
+                const $container = $('#invoice-list');
+
+                invoices.forEach(invoice => {
+                    const isPaidClass = invoice.IsPaid === 'Paid' ? 'success' : 'danger';
+                    const invoiceHTML = `
+                        <li class="d-flex mb-4 pb-1">
+                        <div class="me-4">
+                                <div class="avatar flex-shrink-0">
+                                  <div class="avatar-initial bg-label-${isPaidClass} rounded">
+                                    <div>
+                                     ${invoice.IsPaid}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="me-2">
+                                  <h6 class="mb-1">${invoice.No_Invoice}</h6>
+                                  <p class="mb-0"> ${invoice.Tgl_JatuhTempo}</p>
+                                </div>
+                                <div class="user-progress d-flex align-items-center gap-3">
+                                  <h6 class="mb-0">${invoice.TotalNilai.toLocaleString()}</h6>
+                                </div>
+                              </div>
+                            </li>
+                        `;
+                    $container.append(invoiceHTML);
+                });
+            }
+        });
+    </script>
+
+    <script>
+        function countDataForMonth(data, monthOffset) {
+            const today = new Date();
+
+            // Hitung bulan dan tahun berdasarkan offset
+            const targetMonth = today.getMonth() - monthOffset;
+            const targetYear = today.getFullYear() + Math.floor(targetMonth / 12);
+            const normalizedMonth = (targetMonth + 12) % 12;
+
+            // Tentukan tanggal awal dan akhir bulan
+            const startDate = new Date(targetYear, normalizedMonth, 1); // Hari pertama bulan target
+            const endDate = new Date(targetYear, normalizedMonth + 1, 0); // Hari terakhir bulan target
+
+            // Hitung jumlah data
+            let count = 0;
+            data.forEach(item => {
+                const itemDate = new Date(item.Tgl_Update);
+                if (itemDate >= startDate && itemDate <= endDate) {
+                    count++;
+                }
+            });
+
+            return count;
+        }
+        function countDataForWeek(data, startOffset, endOffset) {
+            const today = new Date();
+            const startDate = new Date();
+            startDate.setDate(today.getDate() - startOffset);
+
+            const endDate = new Date();
+            endDate.setDate(today.getDate() - endOffset);
+
+            let count = 0;
+
+            data.forEach(item => {
+                const itemDate = new Date(item.Tgl_Update);
+                if (itemDate >= startDate && itemDate <= endDate) {
+                    count++;
+                }
+            });
+
+            return count;
+        }
+        $.ajax({
+            url: assetsPath + 'json/BackDataDone.json',    //Home / GetDataPengecekan', // Ganti dengan endpoint server Anda
+            method: 'GET', //POST',
+            dataType: 'json',
+            //data: {
+            //    User_Pengaju: '',
+            //    User_Group: '',
+            //    tipw: '',
+            //    status: '40',
+            //    startDate: '',
+            //    endDate: ''
+            //},
+            success: function (response) {
+                if (response && Array.isArray(response)) {
+                    const totalWeek1 = countDataForWeek(response, 7, 1); // Data dari 24 - 30 November
+                    const totalWeek2 = countDataForWeek(response, 14, 8); // Data dari 17 - 23 November
+                    const percentageChange = ((totalWeek1 - totalWeek2) / totalWeek2) * 100;
+                    console.log(`Perubahan persentase: ${percentageChange.toFixed(2)}%`);
+                    if (percentageChange > 0) {
+                        $('#persenprogres').addClass('text-success fw-semibold')
+                        $('#persenprogrestext').text(`Pengecekan masuk yang telah selesai lebih banyak ${percentageChange.toFixed(2)}% di banding minggu lalu`);
+                        $('#persenprogres').text(`${percentageChange.toFixed(2)} %`);
+                        console.log("Ada pertumbuhan.");
+                    } else if (percentageChange < 0) {
+                        $('#persenprogres').addClass('text-danger fw-semibold')
+                        $('#persenprogrestext').text(`Pengcekan masuk yang telah selesai lebih sedikit ${Math.abs(percentageChange.toFixed(2))}% di banding minggu lalu`);
+                        $('#persenprogres').text(`${percentageChange.toFixed(2)} %`);
+                    } else {
+                        $('#persenprogrestext').text(`Penegcekan masuk yang telah selesai sama seperti minggu lalu sebesar ${percentageChange.toFixed(2)}%`);
+                        $('#persenprogres').text(`${percentageChange.toFixed(2)} %`);
+                    }
+                    // Tampilkan hasil ke konsol atau elemen HTML
+                    console.log(`Total data minggu terakhir: ${totalWeek1}`);
+                    console.log(`Total data 2 minggu sebelumnya: ${totalWeek2}`);
+
+                    const totalCurrentMonth = countDataForMonth(response, 1); // Data bulan ini (Desember)
+                    const totalPreviousMonth = countDataForMonth(response, 2); // Data bulan lalu (November)
+                    const percentageChangeMonth = ((totalCurrentMonth - totalPreviousMonth) / totalPreviousMonth) * 100;
+                    const nilaibulanlalu = totalCurrentMonth * 20000
+                    $("#NilaiBulanini").text(formatRupiah(nilaibulanlalu));
+                    console.log(`Perubahan persentase: ${percentageChange.toFixed(2)}%`);
+                    if (percentageChangeMonth > 0) {
+                        $('#Monthpersenprogres').addClass('text-success fw-semibold');
+                        $('#Monthpersenprogrestext').text(`Pengecekan masuk yang telah selesai lebih banyak ${percentageChangeMonth.toFixed(2)}% dibanding bulan lalu`);
+                        $('#Monthpersenprogres').text(`${percentageChangeMonth.toFixed(2)} %`);
+                        console.log("Ada pertumbuhan.");
+                    } else if (percentageChangeMonth < 0) {
+                        $('#Monthpersenprogres').addClass('text-danger fw-semibold');
+                        $('#Monthpersenprogrestext').text(`Pengecekan masuk yang telah selesai lebih sedikit ${Math.abs(percentageChangeMonth.toFixed(2))}% dibanding bulan lalu`);
+                        $('#Monthpersenprogres').text(`${percentageChangeMonth.toFixed(2)} %`);
+                    } else {
+                        $('#Monthpersenprogrestext').text(`Pengecekan masuk yang telah selesai sama seperti bulan lalu sebesar ${percentageChangeMonth.toFixed(2)}%`);
+                        $('#Monthpersenprogres').text(`${percentageChangeMonth.toFixed(2)} %`);
+                    }
+                } else {
+                    console.error('Response tidak sesuai format.');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Gagal mengambil data:', error);
+            }
+        });
+        function formatNumber(number) {
+            return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        function formatRupiah(angka) {
+            // Membuat format angka menggunakan Intl.NumberFormat untuk format Indonesia
+            var formattedNumber = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            }).format(angka);
+
+            // Menghapus simbol "Rp" yang otomatis ditambahkan oleh Intl.NumberFormat
+            formattedNumber = formattedNumber.replace('Rp', '').trim();
+
+            // Menambahkan "Rp." di depan dan mengubah format untuk ribuan dan desimal
+            formattedNumber = "Rp. " + formattedNumber.replace(',', '.') + ",-";
+
+            return formattedNumber;
+        }
+        $.ajax({
+            url: assetsPath + 'json/BackData.json',        //Home / GetDataPengecekan', // Ganti dengan endpoint server Anda
+            method: 'GET',
+            dataType: 'json',
+            //data: {
+            //    User_Pengaju: '',
+            //    User_Group: '',
+            //    tipw: '',
+            //    status: '',
+            //    startDate: '',
+            //    endDate: ''
+            //},
+            success: function (response) {
+                if (response && Array.isArray(response)) {
+                    let countstts16 = 0;
+                    let countstts40 = 0;
+                    let countstts10 = 0;
+                    let totaldata = 0;
+                    let totalPendapatan = 0;
+                    let totalpt = 0;
+                    let totalcv = 0;
+                    let totalselain = 0;
+                    response.forEach(item => {
+                        if (item.TipeTransaksi_CekingDesc === "Data Terakhir" && item.Status_Pengajuan === 40) {
+                            totalPendapatan++
+                        }
+                        if (item.Status_Pengajuan > 0) {
+                            totaldata++
+                        }
+                        if (item.Status_Pengajuan === 16) {
+                            countstts16++;
+                        } else if (item.Status_Pengajuan === 40) {
+                            countstts40++
+                        } else if (item.Status_Pengajuan === 10) {
+                            countstts10++
+                        }
+                        if ((item.Jenis_Badan === "pt" || item.Nama_PT.trim().slice(0, 2).toLowerCase() === "pt") && item.Status_Pengajuan === 40) {
+                            totalpt++
+                        } else if ((item.Jenis_Badan === "cv" || item.Nama_PT.trim().slice(0, 2).toLowerCase() === "cv") && item.Status_Pengajuan === 40) {
+                            totalcv++
+                        } else if (((item.Jenis_Badan != "pt" || item.Nama_PT.trim().slice(0, 2).toLowerCase() != "pt") || (item.Jenis_Badan != "cv" || item.Nama_PT.trim().slice(0, 2).toLowerCase() != "cv")) && item.Status_Pengajuan === 40) {
+                            totalselain++
+                        }
+                    });
+                    let total = totalPendapatan * 20000
+                    let forTotal = formatRupiah(total)
+                    let totaldatasel = formatNumber(totaldata)
+                    $("#TotalSelesai").text(totaldatasel);
+                    $("#totalpendapatan").text(forTotal);
+                    $("#GagalCek").text(formatNumber(countstts16));
+                    $("#TotalCvShow").text(formatNumber(totalcv));
+                    $("#TotalPTShow").text(formatNumber(totalpt));
+                    $("#TotalSelShow").text(formatNumber(totalselain));
+
+
+                    console.log('Data total ' + formatNumber(totaldata));
+                    console.log('Data 16 ' + formatNumber(countstts16));
+                    console.log('Data 40 ' + formatNumber(countstts40));
+                    console.log('Data 10 ' + formatNumber(countstts10));
+                    console.log('Data Total Pendapatan ' + forTotal);
+                    console.log('Data PT ' + formatNumber(totalpt));
+                    console.log('Data CV ' + formatNumber(totalcv));
+                    console.log('Data Selain PT dan CV ' + formatNumber(totalselain));
+
+
+                } else {
+                    console.error('Response tidak sesuai format.');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Gagal mengambil data:', error);
+            }
+        });
+    </script>
+}
+
+

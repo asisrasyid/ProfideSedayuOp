@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Report - App & Fitur";
+}
+@section CustomStylesPages {
+
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/form-validation/form-validation.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/pages/page-auth.css" />
+}
+
+<div class="position-relative stripe-1new">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="py-6 mx-4 align-content-center">
+            <div class="card p-7" style="width:600px">
+                <div class="card-body mt-1">
+                    <h4 class="mb-1">Report Data</h4>
+                    <p class="mb-5">Download Data, Pilih Rentang tanggal dan atau Status Pengajuan</p>
+
+                    <form id="downloadForm" action="/Home/AddTableDataToExcel" method="post" class="mb-5">
+                        <div class="form-floating form-floating-outline mb-5">
+                            <div class="form-floating form-floating-outline">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="jenisCek">
+                                    <option value="">Pilih Jenis Pengajuan</option>
+                                    <option value="40">Selesai Cek</option>
+                                    <option value="16">Gagal Cek</option>
+                                    <option value="25">Proses Cek</option>
+                                    <option value="15">Data Valid</option>
+                                </select>
+                                <label for="floatingSelect">Jenis Pengajuan</label>
+                            </div>
+                        </div>
+                        <div class="form-floating form-floating-outline mb-5">
+                            <div class="input-group input-group-merge">
+                                <div class="form-floating form-floating-outline">
+                                    <input type="date"
+                                           name="Startdate"
+                                           class="form-control"
+                                           id="basic-addon11"
+                                           aria-label="Start Date"
+                                           aria-describedby="basic-addon11" />
+                                    <label for="basic-addon11">Start Date</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-5 form-password-toggle">
+                            <div class="input-group input-group-merge">
+                                <div class="form-floating form-floating-outline">
+                                    <input type="date"
+                                           name="EndDate"
+                                           class="form-control"
+                                           id="basic-addon12"
+                                           aria-label="End Date"
+                                           aria-describedby="basic-addon12" />
+                                    <label for="basic-addon12">End Date</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Download</button>
+                    </form>
+                    <iframe name="downloadFrame" style="display:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script src="~/Content/assets/vendor/libs/form-validation/popular.js"></script>
+    <script src="~/Content/assets/vendor/libs/form-validation/bootstrap5.js"></script>
+    <script src="~/Content/assets/vendor/libs/form-validation/auto-focus.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+    <script src="~/Content/assets/js/pages-auth.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#downloadForm').on('submit', function () {
+                // Tampilkan BlockUI saat form disubmit
+                $.blockUI({
+                    message: '<div class="spinner-border text-primary" role="status"></div>',
+                    css: {
+                        backgroundColor: 'transparent',
+                        border: '0'
+                    },
+                    overlayCSS: {
+                        backgroundColor: '#fff',
+                        opacity: 0.8
+                    }
+                });
+
+                // Periksa cookie setiap 500ms untuk menutup BlockUI
+                var interval = setInterval(function () {
+                    if (document.cookie.indexOf("fileDownload=true") !== -1) {
+                        clearInterval(interval); // Hentikan interval
+                        $.unblockUI(); // Tutup loading
+                        document.cookie = "fileDownload=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Hapus cookie
+                    }
+                }, 500);
+
+                // Biarkan proses form berjalan
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,34 @@
+{
+  "pages": [
+    {
+      "name": "Dashboard",
+      "icon": "ri-computer-line",
+      "url": "Index",
+      "con": "Home"
+    },
+    {
+      "name": "Laporan",
+      "icon": "ri-bar-chart-line",
+      "url": "Laporan",
+      "con": "Home"
+    },
+    {
+      "name": "Hasil Cek",
+      "icon": "ri-layout-top-line",
+      "url": "Result",
+      "con": "Home"
+    },
+    {
+      "name": "Create Invoice",
+      "icon": "ri-layout-5-line",
+      "url": "app_invoice_select",
+      "con": "Home"
+    },
+    {
+      "name": "Invoice List",
+      "icon": "ri-layout-5-line",
+      "url": "app_invoice_select",
+      "con": "Home"
+    }
+  ]
+}

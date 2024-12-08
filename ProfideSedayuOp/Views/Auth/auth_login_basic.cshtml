@@ -1,0 +1,207 @@
+
+@{
+    Layout = null;
+}
+<!doctype html>
+
+<html
+  lang="en"
+  class="light-style layout-wide customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/Content/assets/"
+  data-template="vertical-menu-template"
+  data-style="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Sing-in | Sedayu Profide System</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/img/icons/S-removebg-preview.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&ampdisplay=swap"
+          rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/remixicon/remixicon.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/typeahead-js/typeahead.css" />
+    <!-- Vendor -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/form-validation/form-validation.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendor/libs/spinkit/spinkit.css" />
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="~/Content/assets/vendor/css/pages/page-auth.css" />
+    <link href="~/Content/backgroudauth.css" rel="stylesheet" />
+    <!-- Helpers -->
+    <script src="~/Content/assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/Content/assets/js/config.js"></script>
+    <style>
+    </style>
+</head>
+
+  <body class="">
+      <!-- Content -->
+
+      <div class="position-relative stripe-1new">
+          <div class="authentication-wrapper authentication-basic container-p-y">
+              <div class="authentication-inner py-6 mx-4">
+                  <!-- Login -->
+                  <div class="card p-3">
+                      <div class="card-body mt-1">
+                          <h4 class="mb-1 text-center mb-4">Welcome</h4>
+                          <p class="mb-5">Please sign-in to your account and start the adventure</p>
+
+                          <form id="formAuthentication" class="mb-5" action="/Auth/AccountLoginAPI" method="POST">
+                              <div class="form-floating form-floating-outline mb-5">
+                                  <input type="text"
+                                         class="form-control"
+                                         id="email"
+                                         name="username"
+                                         placeholder="Enter your email or username"
+                                         autofocus />
+                                  <label for="email">Email</label>
+                              </div>
+                              <div class="mb-5">
+                                  <div class="form-password-toggle">
+                                      <div class="input-group input-group-merge">
+                                          <div class="form-floating form-floating-outline">
+                                              <input type="password"
+                                                     id="password"
+                                                     class="form-control"
+                                                     name="password"
+                                                     placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                     aria-describedby="password" />
+                                              <label for="password">Password</label>
+                                          </div>
+                                          <span class="input-group-text cursor-pointer"><i class="ri-eye-off-line ri-20px"></i></span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="mb-5 pb-2 d-flex justify-content-between pt-2 align-items-center">
+                                  <div class="form-check mb-0">
+                                      <input class="form-check-input" type="checkbox" id="remember-me" />
+                                      <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                  </div>
+                              </div>
+                              <div class="mb-5">
+                                  <button id="buttonsub" class="btn btn-primary d-grid w-100" type="submit">login</button>
+                              </div>
+                          </form>
+
+                          <p class="text-center mb-5 text-danger fw-semibold">
+                              @ViewBag.Error
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- / Content -->
+      <!-- Core JS -->
+      <!-- build:js assets/vendor/js/core.js -->
+      <script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+      <script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+      <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+      <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+      <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+      <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+      <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
+      <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+      <script src="~/Content/assets/vendor/js/menu.js"></script>
+
+      <!-- endbuild -->
+      <!-- Vendors JS -->
+      <script src="~/Content/assets/vendor/libs/block-ui/block-ui.js"></script>
+      <script src="~/Content/assets/vendor/libs/form-validation/popular.js"></script>
+      <script src="~/Content/assets/vendor/libs/form-validation/bootstrap5.js"></script>
+      <script src="~/Content/assets/vendor/libs/form-validation/auto-focus.js"></script>
+
+      <!-- Main JS -->
+      <script src="~/Content/assets/js/main.js"></script>
+
+      <!-- Page JS -->
+      <script src="~/Content/assets/js/pages-auth.js"></script>
+      <script>
+          $('#buttonsub').on('click', function () {
+              $.blockUI({
+                  message: '<div class="spinner-border text-primary" role="status"></div>',
+                  timeout: 1000,
+                  css: {
+                      backgroundColor: 'transparent',
+                      color: '#fff',
+                      border: '0'
+                  },
+                  overlayCSS: {
+                      opacity: 0.5
+                  },
+                  onUnblock: function () {
+                      $.blockUI({
+                          message: '<div class="d-flex justify-content-center"><p class="mb-0 px-3">Validasi User </p> <div class="sk-wave m-0"><div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div></div> </div>',
+                          timeout: 25000,
+                          css: {
+                              backgroundColor: 'transparent',
+                              color: '#fff',
+                              border: '0'
+                          },
+                          overlayCSS: {
+                              opacity: 0.5
+                          },
+                          onUnblock: function () {
+                              $.blockUI({
+                                  message: '<div class="d-flex justify-content-center"><p class="mb-0 px-3">Checking Acces </p> <div class="sk-wave m-0"><div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div></div> </div>',
+                                  timeout: 5000,
+                                  css: {
+                                      backgroundColor: 'transparent',
+                                      color: '#fff',
+                                      border: '0'
+                                  },
+                                  overlayCSS: {
+                                      opacity: 0.5
+                                  },
+                                  onUnblock: function () {
+                                      $.blockUI({
+                                          message: '<div class="d-flex justify-content-center"><p class="mb-0 px-3">Wait, Almost Done!</p> <div class="sk-wave m-0"><div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div> <div class="sk-rect sk-wave-rect"></div></div> </div>',
+                                          css: {
+                                              backgroundColor: 'transparent',
+                                              color: '#fff',
+                                              border: '0'
+                                          },
+                                          overlayCSS: {
+                                              opacity: 0.5
+                                          }
+                                      });
+                                  }
+                              });
+                          }
+                      });
+                  }
+              });
+          });
+      </script>
+  </body>
+</html>
