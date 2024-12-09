@@ -142,7 +142,7 @@ namespace ProfideSedayuOp.Models
                         { new StringContent(Password), "Password" },
                     };
 
-                    var response = await client.PostAsync(strconnection + "api/login", formData);
+                    var response = await client.PostAsync(strconnection + "api/AHU/CheckAUTH", formData);
 
                     if (response.IsSuccessStatusCode)
                     {

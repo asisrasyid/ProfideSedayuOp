@@ -103,6 +103,7 @@ namespace ProfideSedayuOp.Controllers
                     {
                         Session["DataLog"] = Acces;
                         Session["Name"] = responseList[0].Nama;
+                        Session["Admin"] = responseList[0].accesenum;
                         if (Acces == "MTF-FIN")
                         {
                             string jsonFilePath = Server.MapPath("~/Content/assets/json/BackData.json");

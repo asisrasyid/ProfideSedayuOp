@@ -57,7 +57,7 @@
         <div class="layout-container">
             <!-- Menu -->
 
-            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" >
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                         <i class="menu-toggle-icon d-xl-block align-middle"></i>
@@ -117,6 +117,28 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if (Session["Admin"] != null && Session["Admin"].ToString() == "ADMINISTRATOR")
+                            {
+                                <li class="menu-item">
+                                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                        <div data-i18n="Group Akses">Group Akses</div>
+                                    </a>
+                                    <ul class="menu-sub">
+                                        @foreach (var group in new[] { "Mandiri", "Mitsui", "Admin" })
+                                        {
+                                            <li class="menu-item">
+                                                <form action="/Admin/GroupAksesChange" method="POST" class="form-getdata menu-link">
+                                                    <input name="Action" value="@group" hidden />
+                                                    <a class="FormSubmit">
+                                                        <div data-i18n="@group">@group</div>
+                                                    </a>
+                                                </form>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+
                         </ul>
                     </li>
                 </ul>
@@ -252,13 +274,22 @@
     <script src="~/Content/assets/vendor/js/bootstrap.js"></script>
     <script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
     <script src="~/Content/assets/vendor/libs/block-ui/block-ui.js"></script>
-   
+
     <script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
     <script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>
     <script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
     <script src="~/Content/assets/vendor/js/menu.js"></script>
     <script src="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script>
+        $(document).on('click', '.FormSubmit', function (e) {
+            e.preventDefault(); // Mencegah link default
+            const form = $(this).closest('.form-getdata'); // Temukan form terdekat
+            if (form.length) {
+                form.submit(); // Kirimkan form
+            }
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

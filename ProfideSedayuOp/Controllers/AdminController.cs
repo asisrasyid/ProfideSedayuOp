@@ -35,7 +35,7 @@ namespace ProfideSedayuOp.Controllers
             var cap = Session["Caption"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -49,7 +49,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -62,7 +62,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -75,7 +75,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -88,7 +88,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -101,7 +101,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -114,7 +114,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -127,7 +127,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -140,7 +140,7 @@ namespace ProfideSedayuOp.Controllers
         //    var log = Session["Name"];
         //    if (xx == null || xx.ToString() == "")
         //    {
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
         //    }
         //    ViewBag.User = log;
         //    ViewBag.Data = xx;
@@ -154,7 +154,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -167,7 +167,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -183,7 +183,179 @@ namespace ProfideSedayuOp.Controllers
         //    var jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(dt);
         //    return Content(jsonResult, "application/json");
         //}
+        public async Task<ActionResult> GroupAksesChange(string Action)
+        {
+            var AccCheck = Session["Admin"];
+            var xx = Session["DataLog"];
+            var DbCek = xx?.ToString();
+           
+            if (AccCheck.ToString()== "ADMINISTRATOR")
+            {
+                GetData nw = new GetData();
+                ParamGetPengajuan dbs = new ParamGetPengajuan();
+                if (Action == "Mitsui")
+                {
+                    Session["DataLog"] = "MIT-FIN";
+                    string jsonFilePath = Server.MapPath("~/Content/assets/json/BackData.json");
+                    string strconnectionmit = OwinLibrary.GetAPIMitsu();
+                    var apiResponse = await nw.GetDataPengecekanAPI(dbs, strconnectionmit);
+                    if (string.IsNullOrEmpty(apiResponse))
+                    {
+                        ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                        return View("auth_login_basic");
+                    }
+                    var responseObject = JsonConvert.DeserializeObject<object>(apiResponse);
+                    string jsonContent = JsonConvert.SerializeObject(responseObject, Formatting.Indented);
+                    System.IO.File.WriteAllText(jsonFilePath, jsonContent);
+                    if (Action == "Mitsui")
+                    {
+                        string jsonFilePath2 = Server.MapPath("~/Content/assets/json/BackDataDone.json");
+                        ParamGetPengajuan dbo = new ParamGetPengajuan();
+                        dbo.Status = "40";
+                        var apiResponse2 = await nw.GetDataPengecekanAPI(dbo, strconnectionmit);
+                        if (string.IsNullOrEmpty(apiResponse2))
+                        {
+                            ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                            return View("auth_login_basic");
+                        }
+                        var responseObject2 = JsonConvert.DeserializeObject<object>(apiResponse2);
+                        string jsonContent2 = JsonConvert.SerializeObject(responseObject2, Formatting.Indented);
+                        System.IO.File.WriteAllText(jsonFilePath2, jsonContent2);
+                        if (Action == "Mitsui")
+                        {
+                            string jsonFilePathInvoice = Server.MapPath("~/Content/assets/json/BackDataInv.json");
+                            ParamGetPengajuan NewForINVdbo = new ParamGetPengajuan();
+                            NewForINVdbo.Tipe = "002";
+                            var ResponseDataInv = await nw.GetDataPengecekanAPI(NewForINVdbo, strconnectionmit);
+                            if (string.IsNullOrEmpty(ResponseDataInv))
+                            {
+                                ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                                return View("auth_login_basic");
+                            }
+                            var ResponseDataInvObject = JsonConvert.DeserializeObject<object>(ResponseDataInv);
+                            string ResponseDataInvContent = JsonConvert.SerializeObject(ResponseDataInvObject, Formatting.Indented);
+                            System.IO.File.WriteAllText(jsonFilePathInvoice, ResponseDataInvContent);
+                            Session["Caption"] = "MITSUI LEASING CAPITAL INDONESIA";
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
 
+                } else if (Action == "Mandiri")
+                {
+                    Session["DataLog"] = "MTF-FIN";
+                    string jsonFilePath = Server.MapPath("~/Content/assets/json/BackData.json");
+                    string strconnectionmtf = OwinLibrary.GetAPIMTF();
+                    var apiResponse = await nw.GetDataPengecekanAPI(dbs, strconnectionmtf);
+                    if (string.IsNullOrEmpty(apiResponse))
+                    {
+                        ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                        return View("auth_login_basic"); ;
+                    }
+                    var responseObject = JsonConvert.DeserializeObject<object>(apiResponse);
+                    string jsonContent = JsonConvert.SerializeObject(responseObject, Formatting.Indented);
+                    System.IO.File.WriteAllText(jsonFilePath, jsonContent);
+                    if (Action == "Mandiri")
+                    {
+                        string jsonFilePath2 = Server.MapPath("~/Content/assets/json/BackDataDone.json");
+                        ParamGetPengajuan dbo = new ParamGetPengajuan();
+                        dbo.Status = "40";
+                        var apiResponse2 = await nw.GetDataPengecekanAPI(dbo, strconnectionmtf);
+                        if (string.IsNullOrEmpty(apiResponse))
+                        {
+                            ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                            return View("auth_login_basic");
+                        }
+                        var responseObject2 = JsonConvert.DeserializeObject<object>(apiResponse2);
+                        string jsonContent2 = JsonConvert.SerializeObject(responseObject2, Formatting.Indented);
+                        System.IO.File.WriteAllText(jsonFilePath2, jsonContent2);
+                        if (Action == "Mandiri")
+                        {
+                            string jsonFilePathInvoice = Server.MapPath("~/Content/assets/json/BackDataInv.json");
+                            ParamGetPengajuan NewForINVdbo = new ParamGetPengajuan();
+                            NewForINVdbo.Tipe = "002";
+                            var ResponseDataInv = await nw.GetDataPengecekanAPI(NewForINVdbo, strconnectionmtf);
+                            if (string.IsNullOrEmpty(ResponseDataInv))
+                            {
+                                ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                                return View("auth_login_basic");
+                            }
+                            var ResponseDataInvObject = JsonConvert.DeserializeObject<object>(ResponseDataInv);
+                            string ResponseDataInvContent = JsonConvert.SerializeObject(ResponseDataInvObject, Formatting.Indented);
+                            System.IO.File.WriteAllText(jsonFilePathInvoice, ResponseDataInvContent);
+                            Session["Caption"] = "MANDIRI TUNAS FINANCE";
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                } else if (Action == "Admin"){
+                    Session["DataLog"] = "ADMIN";
+                    string jsonMitsui = Server.MapPath("~/Content/assets/json/BackData-Mit.json");
+                    string jsonMandiri = Server.MapPath("~/Content/assets/json/BackData-Mtf.json");
+                    string strconnectionmit = OwinLibrary.GetAPIMitsu();
+                    string strconnectionmandiri = OwinLibrary.GetAPIMTF();
+                    var apiResponseMisui = await nw.GetDataPengecekanAPI(dbs, strconnectionmit);
+                    var apiResponseMandiri = await nw.GetDataPengecekanAPI(dbs, strconnectionmandiri);
+                    if (string.IsNullOrEmpty(apiResponseMisui) || string.IsNullOrEmpty(apiResponseMandiri))
+                    {
+                        ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                        return View("auth_login_basic");
+                    }
+                    var responseObjectMitsui = JsonConvert.DeserializeObject<object>(apiResponseMisui);
+                    var responseObjectMandiri = JsonConvert.DeserializeObject<object>(apiResponseMandiri);
+                    string jsonContentMitsui = JsonConvert.SerializeObject(responseObjectMitsui, Formatting.Indented);
+                    string jsonContentMadiri = JsonConvert.SerializeObject(responseObjectMandiri, Formatting.Indented);
+                    System.IO.File.WriteAllText(jsonMitsui, jsonContentMitsui);
+                    System.IO.File.WriteAllText(jsonMandiri, jsonContentMadiri);
+                    if (Action == "Admin")
+                    {
+                        string jsonFilePathDoneMit = Server.MapPath("~/Content/assets/json/BackDataDone-Mit.json");
+                        string jsonFilePathDoneMan = Server.MapPath("~/Content/assets/json/BackDataDone-Mtf_.json");
+                        ParamGetPengajuan dbo = new ParamGetPengajuan();
+                        dbo.Status = "40";
+                        var apiResponseMitsuiDone = await nw.GetDataPengecekanAPI(dbo, strconnectionmit);
+                        var apiResponseMandiriDone = await nw.GetDataPengecekanAPI(dbo, strconnectionmandiri);
+                        if (string.IsNullOrEmpty(apiResponseMitsuiDone) || string.IsNullOrEmpty(apiResponseMandiriDone))
+                        {
+                            ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                            return View("auth_login_basic");
+                        }
+                        var responseObjectMistuiDone = JsonConvert.DeserializeObject<object>(apiResponseMitsuiDone);
+                        var responseObjectMandiriDone = JsonConvert.DeserializeObject<object>(apiResponseMandiriDone);
+                        string jsonContentMitsuiDone = JsonConvert.SerializeObject(responseObjectMistuiDone, Formatting.Indented);
+                        string jsonContentMandiriDone = JsonConvert.SerializeObject(responseObjectMandiriDone, Formatting.Indented);
+                        System.IO.File.WriteAllText(jsonFilePathDoneMit, jsonContentMitsuiDone);
+                        System.IO.File.WriteAllText(jsonFilePathDoneMan, jsonContentMandiriDone);
+                        if (Action == "Admin")
+                        {
+                            string jsonFilePathInvoiceMitsui = Server.MapPath("~/Content/assets/json/BackDataInv-Mit.json");
+                            string jsonFilePathInvoiceMandiri = Server.MapPath("~/Content/assets/json/BackDataInv-Mtf.json");
+                            ParamGetPengajuan NewForINVdbo = new ParamGetPengajuan();
+                            NewForINVdbo.Tipe = "002";
+                            var ResponseDataInvMitsui = await nw.GetDataPengecekanAPI(NewForINVdbo, strconnectionmit);
+                            var ResponseDataInvMandiri = await nw.GetDataPengecekanAPI(NewForINVdbo, strconnectionmandiri);
+                            if (string.IsNullOrEmpty(ResponseDataInvMitsui) || string.IsNullOrEmpty(ResponseDataInvMandiri))
+                            {
+                                ViewBag.Error = "Terjadi Kesalahan Silahkan Coba Lagi";
+                                return View("auth_login_basic");
+                            }
+                            var ResponseDataInvObjectMitsui = JsonConvert.DeserializeObject<object>(ResponseDataInvMitsui);
+                            string ResponseDataInvContentMitsui = JsonConvert.SerializeObject(ResponseDataInvObjectMitsui, Formatting.Indented);
+                            System.IO.File.WriteAllText(jsonFilePathInvoiceMitsui, ResponseDataInvContentMitsui);
+                            var ResponseDataInvObjectMandiri = JsonConvert.DeserializeObject<object>(ResponseDataInvMandiri);
+                            string ResponseDataInvContentMandiri = JsonConvert.SerializeObject(ResponseDataInvObjectMandiri, Formatting.Indented);
+                            System.IO.File.WriteAllText(jsonFilePathInvoiceMandiri, ResponseDataInvContentMandiri);
+                            Session["Caption"] = "ADMIN-PENGECEKAN PERUSAHAAN MTF-MITSUI";
+                            return RedirectToAction("Index", "Admin");
+                        }
+                    }
+                }
+                return RedirectToAction("auth_login_basic", "Auth");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
 
         public async Task<ActionResult> SaveDataPengecekan(SavePengajuan db)
         {
@@ -193,7 +365,7 @@ namespace ProfideSedayuOp.Controllers
                 var log = Session["Name"];
                 if (xx == null || xx.ToString() == "")
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
                 ViewBag.User = log;
                 ViewBag.Data = xx;
@@ -221,7 +393,7 @@ namespace ProfideSedayuOp.Controllers
                     return Json(new { success = true, message = "Data Di Update" });
                 }
 
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
 
             }
@@ -240,7 +412,7 @@ namespace ProfideSedayuOp.Controllers
                 var log = Session["Name"];
                 if (xx == null || xx.ToString() == "")
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
                 ViewBag.User = log;
                 ViewBag.Data = xx;
@@ -275,10 +447,10 @@ namespace ProfideSedayuOp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
                
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
 
             }
@@ -294,7 +466,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -464,12 +636,12 @@ namespace ProfideSedayuOp.Controllers
                     return Content(apiResponse, "application/json");
 
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -484,7 +656,7 @@ namespace ProfideSedayuOp.Controllers
         //        var log = Session["Name"];
         //        if (xx == null || xx.ToString() == "")
         //        {
-        //            return RedirectToAction("auth_login_cover", "Auth");
+        //            return RedirectToAction("auth_login_basic", "Auth");
         //        }
         //        ViewBag.User = log;
         //        ViewBag.Data = xx;
@@ -585,7 +757,7 @@ namespace ProfideSedayuOp.Controllers
 
         //        }
 
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
 
 
         //    }
@@ -602,7 +774,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -707,12 +879,12 @@ namespace ProfideSedayuOp.Controllers
                     // Mengirimkan file sebagai download
                     return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", fileName);
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
         public async Task<ActionResult> GenerateFilePdfNew([FromBody] List<List<string>> tableData, InvoiceInput dt)
@@ -721,7 +893,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -881,12 +1053,12 @@ namespace ProfideSedayuOp.Controllers
                             System.IO.File.Delete(tempPdfPath);
                     }
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -898,7 +1070,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -937,11 +1109,11 @@ namespace ProfideSedayuOp.Controllers
                     return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", fileName);
                 }
 
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -951,7 +1123,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -995,7 +1167,7 @@ namespace ProfideSedayuOp.Controllers
             }
             else
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             
             try
@@ -1058,7 +1230,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
 
             ViewBag.User = log;
@@ -1086,7 +1258,7 @@ namespace ProfideSedayuOp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
 
                 dt.templatePath = templatePath;
@@ -1167,7 +1339,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (string.IsNullOrEmpty(xx?.ToString()))
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
 
             ViewBag.User = log;
@@ -1198,7 +1370,7 @@ namespace ProfideSedayuOp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
 
                 // Ambil data invoice
@@ -1279,7 +1451,7 @@ namespace ProfideSedayuOp.Controllers
             catch (Exception ex)
             {
                 // Tambahkan log jika perlu
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
