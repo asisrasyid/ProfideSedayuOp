@@ -35,7 +35,7 @@ namespace ProfideSedayuOp.Controllers
             var cap = Session["Caption"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -49,7 +49,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -62,7 +62,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -75,7 +75,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -88,7 +88,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -101,7 +101,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -114,7 +114,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -127,7 +127,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -140,7 +140,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -154,7 +154,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -167,7 +167,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -193,7 +193,7 @@ namespace ProfideSedayuOp.Controllers
                 var log = Session["Name"];
                 if (xx == null || xx.ToString() == "")
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
                 ViewBag.User = log;
                 ViewBag.Data = xx;
@@ -221,7 +221,7 @@ namespace ProfideSedayuOp.Controllers
                     return Json(new { success = true, message = "Data Di Update" });
                 }
 
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
 
             }
@@ -240,7 +240,7 @@ namespace ProfideSedayuOp.Controllers
                 var log = Session["Name"];
                 if (xx == null || xx.ToString() == "")
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
                 ViewBag.User = log;
                 ViewBag.Data = xx;
@@ -268,7 +268,7 @@ namespace ProfideSedayuOp.Controllers
                     return Content(apiResponse, "application/json");
                 }
 
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
 
             }
@@ -284,7 +284,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -454,12 +454,12 @@ namespace ProfideSedayuOp.Controllers
                     return Content(apiResponse, "application/json");
 
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -474,7 +474,7 @@ namespace ProfideSedayuOp.Controllers
         //        var log = Session["Name"];
         //        if (xx == null || xx.ToString() == "")
         //        {
-        //            return RedirectToAction("auth_login_cover", "Auth");
+        //            return RedirectToAction("auth_login_basic", "Auth");
         //        }
         //        ViewBag.User = log;
         //        ViewBag.Data = xx;
@@ -575,7 +575,7 @@ namespace ProfideSedayuOp.Controllers
 
         //        }
 
-        //        return RedirectToAction("auth_login_cover", "Auth");
+        //        return RedirectToAction("auth_login_basic", "Auth");
 
 
         //    }
@@ -592,7 +592,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -697,12 +697,12 @@ namespace ProfideSedayuOp.Controllers
                     // Mengirimkan file sebagai download
                     return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", fileName);
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
         public async Task<ActionResult> GenerateFilePdfNew([FromBody] List<List<string>> tableData, InvoiceInput dt)
@@ -711,7 +711,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -871,12 +871,12 @@ namespace ProfideSedayuOp.Controllers
                             System.IO.File.Delete(tempPdfPath);
                     }
                 }
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
 
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -888,7 +888,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -927,11 +927,11 @@ namespace ProfideSedayuOp.Controllers
                     return File(fileBytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", fileName);
                 }
 
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             catch (Exception ex)
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 
@@ -941,7 +941,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
             ViewBag.User = log;
             ViewBag.Data = xx;
@@ -1033,7 +1033,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (xx == null || xx.ToString() == "")
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
 
             ViewBag.User = log;
@@ -1061,7 +1061,7 @@ namespace ProfideSedayuOp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
 
                 dt.templatePath = templatePath;
@@ -1142,7 +1142,7 @@ namespace ProfideSedayuOp.Controllers
             var log = Session["Name"];
             if (string.IsNullOrEmpty(xx?.ToString()))
             {
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
 
             ViewBag.User = log;
@@ -1173,7 +1173,7 @@ namespace ProfideSedayuOp.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("auth_login_cover", "Auth");
+                    return RedirectToAction("auth_login_basic", "Auth");
                 }
 
                 // Ambil data invoice
@@ -1254,7 +1254,7 @@ namespace ProfideSedayuOp.Controllers
             catch (Exception ex)
             {
                 // Tambahkan log jika perlu
-                return RedirectToAction("auth_login_cover", "Auth");
+                return RedirectToAction("auth_login_basic", "Auth");
             }
         }
 

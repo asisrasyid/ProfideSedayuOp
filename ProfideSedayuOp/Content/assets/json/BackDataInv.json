@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "Client": "PT. Mitsui Leasing Capital Indonesia",
+    "Tgl_Pengajuan": "5 Desember 2024",
+    "Tgl_JatuhTempo": "19 Desember 2024",
+    "No_Invoice": "0003/INV/SDB/XII/2024",
+    "File": "992-0003/INV/SDB/XII/2024",
+    "IsPaid": "Paid",
+    "TotalNilai": "Rp. 8.426.924.00,-",
+    "NilaiPNBP": "Rp. 6.050.000.00,-",
+    "NilaiPPH": "Rp. 43.076.00,-",
+    "NilaiPPN": "Rp. 266.200.00,-",
+    "TotalDPP": "Rp. 2.153.800.00,-",
+    "CreateBy": "Muhammad Azis"
+  },
+  {
+    "Client": "PT. Mitsui Leasing Capital Indonesia",
+    "Tgl_Pengajuan": "5 Desember 2024",
+    "Tgl_JatuhTempo": "19 Desember 2024",
+    "No_Invoice": "00002/INV/SDB/XII/2024",
+    "File": "992-00002/INV/SDB/XII/2024",
+    "IsPaid": "Paid",
+    "TotalNilai": "Rp. 6.128.672.00,-",
+    "NilaiPNBP": "Rp. 4.400.000.00,-",
+    "NilaiPPH": "Rp. 31.328.00,-",
+    "NilaiPPN": "Rp. 193.600.00,-",
+    "TotalDPP": "Rp. 1.566.400.00,-",
+    "CreateBy": null
+  },
+  {
+    "Client": "PT. Mitsui Leasing Capital Indonesia",
+    "Tgl_Pengajuan": "5 Desember 2024",
+    "Tgl_JatuhTempo": "19 Desember 2024",
+    "No_Invoice": "0005/INV/SDB/XII/2024",
+    "File": "992-0005/INV/SDB/XII/2024",
+    "IsPaid": "Paid",
+    "TotalNilai": "Rp. 7.591.196.00,-",
+    "NilaiPNBP": "Rp. 5.450.000.00,-",
+    "NilaiPPH": "Rp. 38.804.00,-",
+    "NilaiPPN": "Rp. 239.800.00,-",
+    "TotalDPP": "Rp. 1.940.200.00,-",
+    "CreateBy": "Muhammad Azis"
+  },
+  {
+    "Client": "PT. Mitsui Leasing Capital Indonesia",
+    "Tgl_Pengajuan": "6 Desember 2024",
+    "Tgl_JatuhTempo": "20 Desember 2024",
+    "No_Invoice": "777",
+    "File": "992-777",
+    "IsPaid": "Unpaid",
+    "TotalNilai": "Rp. 30.586.800.00,-",
+    "NilaiPNBP": "Rp. 21.300.000.00,-",
+    "NilaiPPH": "Rp. 170.400.00,-",
+    "NilaiPPN": "Rp. 937.200.00,-",
+    "TotalDPP": "Rp. 0.00,-",
+    "CreateBy": "Muhammad Azis"
+  }
+]

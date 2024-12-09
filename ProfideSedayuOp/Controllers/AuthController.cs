@@ -33,7 +33,7 @@ namespace ProfideSedayuOp.Controllers
         {
             return View();
         }
-        //public ActionResult auth_login_cover()
+        //public ActionResult auth_login_basic()
         //{
         //    return View();
         //}
@@ -271,7 +271,7 @@ namespace ProfideSedayuOp.Controllers
                     ViewBag.Error = "Anda Tidak Memiliki Akses";
                     return View("auth_login_basic");
                 }
-                ViewBag.Error = "Data Yang Di Inputkan Tidak Vali";
+                ViewBag.Error = "Data Yang Di Inputkan Tidak Valid";
                 return View("auth_login_basic");
             }
             catch (Exception ex)
@@ -304,7 +304,7 @@ namespace ProfideSedayuOp.Controllers
                 if (dt == null || dt.Rows.Count <= 0)
                 {
                     ViewBag.Error = "Data tidak ditemukan. Periksa kembali data Anda.";
-                    return View("auth_login_cover"); // Ganti dengan nama View Auth Login Anda
+                    return View("auth_login_basic"); // Ganti dengan nama View Auth Login Anda
                 }
 
                 // Set session data
@@ -342,13 +342,13 @@ namespace ProfideSedayuOp.Controllers
 
                 // Jika akses tidak valid
                 ViewBag.Error = "Data tidak ditemukan. Periksa kembali data Anda.";
-                return View("auth_login_cover");
+                return View("auth_login_basic");
             }
             catch (Exception ex)
             {
                 // Tangani kesalahan umum
                 ViewBag.Error = "Terjadi Kesalahan Coba Lagi";
-                return View("auth_login_cover");
+                return View("auth_login_basic");
             }
         }
 
@@ -402,7 +402,7 @@ namespace ProfideSedayuOp.Controllers
                 {
                     // Jika data kosong, kirim pesan error
                     ViewBag.Error = "Data tidak ditemukan. Periksa kembali data Anda.";
-                    return View("auth_login_cover"); // Ganti dengan nama View Auth Login Anda
+                    return View("auth_login_basic"); // Ganti dengan nama View Auth Login Anda
                 }
                 
                 var jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(dt);
@@ -499,12 +499,12 @@ namespace ProfideSedayuOp.Controllers
                     }
                 }
                 ViewBag.Error = "Data tidak ditemukan. Periksa kembali data Anda.";
-                return View("auth_login_cover");
+                return View("auth_login_basic");
             }
             catch (Exception ex)
             {
                 ViewBag.Error = "Terjadi Kesalahan Coba Lagi";
-                return View("auth_login_cover");
+                return View("auth_login_basic");
             }
         }
     }
