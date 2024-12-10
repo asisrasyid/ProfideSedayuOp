@@ -31,6 +31,8 @@ namespace ProfideSedayuOp.Controllers
         //}
         public ActionResult auth_login_basic()
         {
+            Session.Clear(); // Hapus semua data session
+            Session.Abandon(); // Hentikan sesi
             return View();
         }
         //public ActionResult auth_login_basic()
@@ -280,6 +282,7 @@ namespace ProfideSedayuOp.Controllers
                 return View("auth_login_basic");
             }
         }
+        
         public class LginRespon
         {
             public string Status { get; set; }
