@@ -304,23 +304,13 @@ namespace ProfideSedayuOp.Models
                         var requestData = new
                         {
                             NoInvoice = mod.invoice,
-                            NoTransaksi = noTransaksiList // Pastikan 'rs' adalah koleksi yang kompatibel seperti List<string> atau array
+                            NoTransaksi = noTransaksiList 
                         };
-                        // Serialisasi objek ke JSON
+                        
                         var jsonContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(requestData), Encoding.UTF8, "application/json");
 
-                        // Kirim POST request dengan JSON
+                        
                         var response = await client.PostAsync(strconnection + "api/AHU/InvoiceUpdateData", jsonContent);
-
-                        //var formData = new MultipartFormDataContent();
-                        //formData.Add(new StringContent(mod.invoice), "NoInvoice");
-
-                        //foreach (var NoTransaksi in rs)
-                        //{
-                        //    formData.Add(new StringContent(NoTransaksi.ToString()), "NoTranskasi[]");
-                        //}
-
-                        //var response = await client.PostAsync(strconnection + "api/AHU/InvoiceUpdateData", formData);
 
                         if (response.IsSuccessStatusCode)
                         {

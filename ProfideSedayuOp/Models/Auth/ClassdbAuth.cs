@@ -24,5 +24,30 @@ namespace ProfideSedayuOp.Models
         public string Username { get; set; }
         public string Password { get; set; }
     }
+    public class dbgetDateLo
+    {
+        public string Name { get; set; }
+        public string Acces { get; set; }
+    }
+    public class LginRespon
+    {
+        public string Status { get; set; }
+        public string Role { get; set; }
+        public string Nama { get; set; }
+        public string email { get; set; }
+        public string updated_at { get; set; }
+        public string acceslink { get; set; }
+        public string accestipe { get; set; }
+        public string accesenum { get; set; }
+    }
+
+    [Serializable]
+    public class SeassonKey
+    {
+        public const string DataLog = "DataLog";
+        public const string Name = "Name";
+        public const string Admin = "Admin";
+        public const string Caption = "Caption";
+    }
 
 }

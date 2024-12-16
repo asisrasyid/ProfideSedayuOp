@@ -113,6 +113,10 @@
             tableData.push(row);
         });
         var dataNilai = JSON.parse(localStorage.getItem("totalPerhitungan"));
+        var startdate = dataNilai.rentang.startDate;
+        var enddate = dataNilai.rentang.endDate;
+        var cabangtxt = dataNilai.cabang;
+        console.log(startdate + ' ' + enddate + ' ' + cabangtxt );
         // Ambil nilai div
         var invociceno = $("#invociceno").text();
         var tanggalmulai = $("#tanggalmulai").text();
@@ -144,8 +148,8 @@
             jtot: totalnilai,
             terbilang: nilaiterbilang,
             tanggalctts: tanggalinvoicettd,
-            StartDate: dataNilai.startDate,
-            EndDate: dataNilai.endDate,
+            StartDate: startdate,
+            EndDate: enddate,
             cabang: dataNilai.Cabang,
             NoFaktur: dataNilai.NoFaktur
         };
@@ -221,6 +225,9 @@
                     }
                 });
                 var dataNilai = JSON.parse(localStorage.getItem("totalPerhitungan"));
+                var startdate = dataNilai.rentang.startDate;
+                var enddate = dataNilai.rentang.endDate;
+                var cabangtxt = dataNilai.cabang;
                 var invociceno = $("#invociceno").text();
                 var tanggalmulai = $("#tanggalmulai").text();
                 var tanggalbayar = $("#tanggalbayar").text();
@@ -250,9 +257,9 @@
                     jtot: totalnilai,
                     terbilang: nilaiterbilang,
                     tanggalctts: tanggalinvoicettd,
-                    StartDate: dataNilai.startDate,
-                    EndDate: dataNilai.endDate,
-                    cabang: dataNilai.Cabang,
+                    StartDate: startdate,
+                    EndDate: enddate,
+                    cabang: cabangtxt,
                     NoFaktur: dataNilai.NoFaktur
                 };
                 $.ajax({
@@ -311,7 +318,9 @@
             tableData.push(row);
         });
         var dataNilai = JSON.parse(localStorage.getItem("totalPerhitungan"));
-        // Ambil nilai div
+        var startdate = dataNilai.rentang.startDate;
+        var enddate = dataNilai.rentang.endDate;
+        var cabangtxt = dataNilai.cabang;
         var invociceno = $("#invociceno").text();
         var tanggalmulai = $("#tanggalmulai").text();
         var tanggalbayar = $("#tanggalbayar").text();
@@ -342,9 +351,9 @@
             jtot: totalnilai,
             terbilang: nilaiterbilang,
             tanggalctts: tanggalinvoicettd,
-            StartDate: dataNilai.startDate,
-            EndDate: dataNilai.endDate,
-            cabang: dataNilai.Cabang,
+            StartDate: startdate,
+            EndDate: enddate,
+            cabang: cabangtxt,
             NoFaktur: dataNilai.NoFaktur
         };
         function getByteSize(str) {

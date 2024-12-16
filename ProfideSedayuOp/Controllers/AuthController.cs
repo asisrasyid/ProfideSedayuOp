@@ -19,62 +19,12 @@ namespace ProfideSedayuOp.Controllers
 {
     public class AuthController : Controller
     {
-
-        // GET: Auth
-        //public ActionResult auth_forgot_password_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_forgot_password_cover()
-        //{
-        //    return View();
-        //}
         public ActionResult auth_login_basic()
         {
             Session.Clear(); // Hapus semua data session
             Session.Abandon(); // Hentikan sesi
             return View();
         }
-        //public ActionResult auth_login_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_register_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_register_cover()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_register_multisteps()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_reset_password_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_reset_password_cover()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_two_steps_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_two_steps_cover()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_verify_email_basic()
-        //{
-        //    return View();
-        //}
-        //public ActionResult auth_verify_email_cover()
-        //{
-        //    return View();
-        //}
         public async Task<ActionResult> AccountLoginAPI(string username, string password)
         {
             try
@@ -283,17 +233,7 @@ namespace ProfideSedayuOp.Controllers
             }
         }
         
-        public class LginRespon
-        {
-            public string Status { get; set; }
-            public string Role { get; set; }
-            public string Nama { get; set; }
-            public string email { get; set; }
-            public string updated_at { get; set; }
-            public string acceslink { get; set; }
-            public string accestipe { get; set; }
-            public string accesenum { get; set; }
-        }
+
         public async Task<ActionResult> AccountLoginAppNew(ParamLogin param)
         {
             try
@@ -510,10 +450,5 @@ namespace ProfideSedayuOp.Controllers
                 return View("auth_login_basic");
             }
         }
-    }
-    public class dbgetDateLo
-    {
-        public string Name { get; set; }
-        public string Acces { get; set; }
     }
 }
