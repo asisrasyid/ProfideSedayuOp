@@ -986,7 +986,7 @@ namespace ProfideSedayuOp.Controllers
                     DateTime endDate = DateTime.Parse(EndDate);
 
                     var filteredData = dt.Where(item =>
-                    DateTime.TryParse(item.Tgl_Pengajuan, out DateTime tglPengajuan) && // Memastikan Tgl_Pengajuan valid
+                    DateTime.TryParse(item.Tgl_Update, out DateTime tglPengajuan) && // Memastikan Tgl_Pengajuan valid
                     tglPengajuan >= startDate && tglPengajuan <= endDate).ToList();
                     await helper.AddTableDataToExcel(filePath, sheetName, filteredData, outputPath);
 
@@ -1004,7 +1004,7 @@ namespace ProfideSedayuOp.Controllers
                     DateTime endDate = DateTime.Parse(EndDate);
 
                     var filteredData = dt.Where(item =>
-                    DateTime.TryParse(item.Tgl_Pengajuan, out DateTime tglPengajuan) && // Memastikan Tgl_Pengajuan valid
+                    DateTime.TryParse(item.Tgl_Update, out DateTime tglPengajuan) && // Memastikan Tgl_Pengajuan valid
                     tglPengajuan >= startDate && tglPengajuan <= endDate && item.Status_Pengajuan == jenisCek).ToList();
                     await helper.AddTableDataToExcel(filePath, sheetName, filteredData, outputPath);
                 }

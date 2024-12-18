@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "Client": "PT. Mandiri Tunas Finance",
+    "Tgl_Pengajuan": "6 Desember 2024",
+    "Tgl_JatuhTempo": "11 Desember 2024",
+    "No_Invoice": "00001/INV/SDB/XII/2024",
+    "File": "992-00001/INV/SDB/XII/2024",
+    "IsPaid": "Unpaid",
+    "TotalNilai": "Rp. 106.623.000.00,-",
+    "NilaiPNBP": "Rp. 74.250.000.00,-",
+    "NilaiPPH": "Rp. 594.000.00,-",
+    "NilaiPPN": "Rp. 3.267.000.00,-",
+    "TotalDPP": "",
+    "CreateBy": "Agung Saputra"
+  },
+  {
+    "Client": "PT. Mandiri Tunas Finance",
+    "Tgl_Pengajuan": "16 Desember 2024",
+    "Tgl_JatuhTempo": "30 Desember 2024",
+    "No_Invoice": "00001/SDB/INV/12/2024",
+    "File": "992-00001/SDB/INV/12/2024",
+    "IsPaid": "Unpaid",
+    "TotalNilai": "Rp. 106.623.000.00,-",
+    "NilaiPNBP": "Rp. 74.250.000.00,-",
+    "NilaiPPH": "Rp. 594.000.00,-",
+    "NilaiPPN": "Rp. 3.267.000.00,-",
+    "TotalDPP": "",
+    "CreateBy": "Agung Saputra"
+  }
+]
