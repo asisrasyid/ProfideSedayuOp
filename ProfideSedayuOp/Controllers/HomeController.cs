@@ -614,7 +614,7 @@ namespace ProfideSedayuOp.Controllers
                         r.Tgl_Pengajuan,
                         r.NamaPT_Ceking,
                         r.cabang,
-                        r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                        r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                         "Rp. 20.000,00"
                      }).ToList();
 
@@ -664,7 +664,7 @@ namespace ProfideSedayuOp.Controllers
                         r.Tgl_Pengajuan,
                         r.NamaPT_Ceking,
                         r.cabang,
-                        r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                        r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                         "Rp. 20.000,00"
                      }).ToList();
                     InvoiceInput mod = new InvoiceInput();
@@ -733,7 +733,7 @@ namespace ProfideSedayuOp.Controllers
                         r.Tgl_Pengajuan,
                         r.NamaPT_Ceking,
                         r.cabang,
-                        r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                        r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                         "Rp. 20.000,00"
                      }).ToList();
 
@@ -803,7 +803,7 @@ namespace ProfideSedayuOp.Controllers
                         r.Tgl_Pengajuan,
                         r.NamaPT_Ceking,
                         r.cabang,
-                        r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                        r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                         "Rp. 20.000,00"
                      }).ToList();
                     InvoiceInput mod = new InvoiceInput();
@@ -1076,7 +1076,7 @@ namespace ProfideSedayuOp.Controllers
                     r.Tgl_Pengajuan,
                     r.NamaPT_Ceking,
                     r.cabang,
-                    r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                    r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                     "Rp. 20.000,00"
                 }).ToList();
 
@@ -1188,7 +1188,7 @@ namespace ProfideSedayuOp.Controllers
                     r.Tgl_Pengajuan,
                     r.NamaPT_Ceking,
                     r.cabang,
-                    r.TipeTransaksi_CekingDesc == "Data Terakhir" ? "Rp. 50.000,00" : "Rp. 500.000,00",
+                    r.TipeTransaksi_CekingDesc == "Data Terakhir" && DateTime.Parse(r.Tgl_Pengajuan) > new DateTime(2024, 12, 16) && r.Jenis_Badan == "pt" ? "Rp. 75.000,00" : "Rp. 50.000,00",
                     "Rp. 20.000,00"
                 }).ToList();
 

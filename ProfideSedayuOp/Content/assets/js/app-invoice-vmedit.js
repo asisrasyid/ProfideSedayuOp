@@ -79,9 +79,9 @@
                 row.append('<td>' + item.NamaPT + '</td>');
                 row.append('<td>' + item.Cabang + '</td>');
                 if (item.TipeTransaksi === 'Data Terakhir') {
-                    row.append('<td>' + 'Rp. 50.000' + '</td>');
+                    row.append('<td>' + item.Pnbpval + '</td>');
                 } else {
-                    row.append('<td>' + 'Rp. 500.000' + '</td>');
+                    row.append('<td>' + item.Pnbpval + '</td>');
                 }
                 row.append('<td>' + 'Rp. 20.000' + '</td>');
                 $('#data-invoice tbody').append(row);

@@ -67,13 +67,32 @@ $(function () {
                 },
                 render: function (data, type, full, meta) {
                     var $no_trns = full['NoTransaksi'];
+                    var $no_PNBP = full['PNBP']; 
+                    let pnbpint;
+                    if ($no_PNBP === null) {
+                        let tglPengajuan = new Date(full['Tgl_Pengajuan']);
+                        let jnsbdan = full['Jenis_Badan']
+                        let cutoffDate = new Date('2024-12-16');
+                        if ((tglPengajuan > cutoffDate) && jnsbdan === "pt") {
+                            pnbpint = 75000;
+                        } else {
+                            pnbpint = 50000;
+                        }
+                    } else {
+                        pnbpint = parseInt($no_PNBP, 10);
+                    }
+                    let pnbpintfix = 0;
+                    if (pnbpint === null) {
+                        pnbpintfix
+                    }
+                    var $pnbpfix = pnbpint;
                     var $wilayah = full['Wilayah_PT'];
                     var $nama = full['Nama_PT'];
                     $nama = $nama.toUpperCase();
                     var $tipe_trns = full['TipeTransaksi_CekingDesc'];
                     var $cabang = full['cabang'];
                     var $TanggalPengajuan = new Date(full['Tgl_Pengajuan']);
-                    return `<input type="checkbox" class="dt-checkboxes form-check-input" data-no="${$no_trns}" data-nama="${$nama}" data-tipe="${$tipe_trns}" data-wilayah="${$wilayah}" data-cabang = "${$cabang}" data-tanggal= "${moment($TanggalPengajuan).format('YYYY-MM-DD')}">`;
+                    return `<input type="checkbox" class="dt-checkboxes form-check-input" data-pnbp="${$pnbpfix}" data-no="${$no_trns}" data-nama="${$nama}" data-tipe="${$tipe_trns}" data-wilayah="${$wilayah}" data-cabang = "${$cabang}" data-tanggal= "${moment($TanggalPengajuan).format('YYYY-MM-DD')}">`;
                 },
                 searchable: false
             },
@@ -200,8 +219,10 @@ $(function () {
                     var totalTipe2 = 0;
                     var totaljasa = 0;
                     var jumlahcek_lengkap = 0;
-                    var jumlahcek_terakhir = 0;
+                    var jumlahcek_terakhir = '';
                     var jumlahjasa = 0;
+                    var total50000 = 0;
+                    var total75000 = 0;
 
                     var transaksiData = [];
                     $('.dt-checkboxes:checked').each(function () {
@@ -214,6 +235,7 @@ $(function () {
                             TipeTransaksi: $checkbox.data('tipe'),
                             Cabang: $checkbox.data('cabang'),
                             TglPengajuan: $checkbox.data('tanggal'),
+                            Pnbpval: $checkbox.data('pnbp'),
                         });
 
                         var data = {
@@ -223,6 +245,7 @@ $(function () {
                             TipeTransaksi: $checkbox.data('tipe'),
                             Cabang: $checkbox.data('cabang'),
                             TglPengajuan: $checkbox.data('tanggal'),
+                            Pnbpval: $checkbox.data('pnbp'),
                         };
                         transaksiData.push(data);
 
@@ -230,11 +253,43 @@ $(function () {
 
                     // Proses transaksiData dalam satu loop
                     for (let i = 0; i < transaksiData.length; i++) {
+                        let pnbpint;
+                        if (transaksiData[i].Pnbpval === null) {
+                            let tglPengajuan = new Date(transaksiData[i].Tglpengajuan);
+                            let cutoffDate = new Date('2024-12-16');
+                            if (tglPengajuan > cutoffDate) {
+                                pnbpint = 75000;
+                            } else {
+                                pnbpint = 50000;
+                            }
+                        } else {
+                            pnbpint = parseInt(transaksiData[i].Pnbpval, 10);
+                        }
+                        let pnbpintfix = 0; 
+                        if (pnbpint === null) {
+                            pnbpintfix 
+                        }
+
+
+                        if (pnbpint === 50000) {
+                            total50000++;
+                        } else if (pnbpint === 75000) {
+                            total75000++;
+                        }
+                        var resultText = '';
+                        if (total50000 > 0 && total75000 > 0) {
+                            resultText = `${total50000} x Rp. 50.000,- dan ${total75000} x Rp. 75.000,-`;
+                        } else if (total50000 > 0) {
+                            resultText = `${total50000} x Rp. 50.000,-`;
+                        } else if (total75000 > 0) {
+                            resultText = `${total75000} x Rp. 75.000,-`;
+                        }
+                        jumlahcek_terakhir = resultText;
                         if (transaksiData[i].TipeTransaksi === "Data Terakhir") {
-                            totalTipe1 += 50000; // Tambahkan total tipe 1
-                            jumlahcek_terakhir++;
+                            totalTipe1 += pnbpint; // Tambahkan total tipe 1
+                           
                         } else if (transaksiData[i].TipeTransaksi === "Data Lengkap") {
-                            totalTipe2 += 500000; // Tambahkan total tipe 2
+                            totalTipe2 += pnbpint; // Tambahkan total tipe 2
                             jumlahcek_lengkap++;
                         }
                         // Tambahkan jasa untuk setiap transaksi
